@@ -5,7 +5,7 @@
 class JSONBinAPI {
     constructor() {
         this.binId = CONFIG.jsonbin.binId;
-        this.apiKey = CONFIG.jsonbin.apiKey;
+        this.accessKey = CONFIG.jsonbin.accessKey;
         this.baseUrl = 'https://api.jsonbin.io/v3';
     }
 
@@ -13,7 +13,7 @@ class JSONBinAPI {
     getHeaders(forWrite = false) {
         const headers = {
             'Content-Type': 'application/json',
-            'X-Master-Key': this.apiKey
+            'X-Access-Key': this.accessKey
         };
         return headers;
     }

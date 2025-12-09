@@ -6,11 +6,11 @@
 const CONFIG = {
     // === JSONBIN CONFIGURATION ===
     // Daftar di https://jsonbin.io dan buat bin baru
-    // API Key harus dimulai dengan '$2a$10$' (hanya satu kali, tanpa duplikasi)
+    // Gunakan Access Key (bukan Master Key) untuk keamanan frontend
+    // Buat Access Key di: https://jsonbin.io/access-keys dengan permission Read + Update Bins
     jsonbin: {
         binId: '69377cded0ea881f401be286',
-        apiKey: '$2a$10$k1qPlJVKmspLtGZUUo2Y7uke5fWfQI0oyir1WMdB7e0UMU5wtMZHy', // Master Key dari JSONBin
-        collectionId: null // Opsional
+        accessKey: '$2a$10$ZphDaaB/oLKhqdwgRd82muLLJvuzcbrUGdGiNjB2MfTbIND6eIlCK' // Ganti dengan Access Key Anda
     },
 
     // === DATA MEMPELAI PRIA ===
@@ -67,7 +67,7 @@ const CONFIG = {
             endTime: '12:00',
             venue: 'Rumah Mempelai Wanita',
             address: 'Jalan Selaraga, Desa Sirkandi Rt 06/05, Purwareja Klampok, Banjarnegara, Jawa Tengah',
-            mapsUrl: 'https://maps.google.com/?q=Masjid+Agung+Surabaya',
+            mapsUrl: 'https://maps.app.goo.gl/ird8wX5NoLY2TtYz5',
             mapsEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.6044!2d112.7378!3d-7.2575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMTUnMjcuMCJTIDExMsKwNDQnMTYuMCJF!5e0!3m2!1sen!2sid!4v1234567890',
             dresscode: 'Putih & Sage Green',
             icon: 'fa-ring'
@@ -80,7 +80,7 @@ const CONFIG = {
             endTime: '15:00',
             venue: 'Rumah Mempelai Pria',
             address: 'RT. 02 RW. 05 Kel. Penambongan Kec. Purbalingga Kab. Purbalingga',
-            mapsUrl: 'https://maps.google.com/?q=Hotel+Majapahit+Surabaya',
+            mapsUrl: 'https://maps.app.goo.gl/ohxNSJ1d75EXFrNH7',
             mapsEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.6044!2d112.7378!3d-7.2575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMTUnMjcuMCJTIDExMsKwNDQnMTYuMCJF!5e0!3m2!1sen!2sid!4v1234567890',
             dresscode: 'Formal - Earth Tone',
             icon: 'fa-champagne-glasses'
@@ -156,10 +156,22 @@ const CONFIG = {
             bank: 'Bank Rakyat Indonesia (BRI)',
             accountNumber: '372601002694507',
             accountName: 'Kukuh Widiyanto',
-            logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/2560px-Bank_Central_Asia.svg.png'
+            logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/BRI_2025.svg/2560px-BRI_2025.svg.png'
         }
     ],
     qrisImage: 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=00020101021126670016COM.NOBUBANK.WWW01189360010300000898240214NMID0001234567030300040520415204541253033605802ID5913AHMAD%20FAUZI6007JAKARTA61051234062070703A0163049E4F',
+
+    // === ALAMAT HADIAH PERNIKAHAN ===
+    giftAddress: {
+        enabled: true,
+        recipientName: 'Kukuh Widiyanto',
+        address: 'RT. 02 RW. 05 Kel. Penambongan Kec. Purbalingga Kab. Purbalingga',
+        city: 'Kab. Purbalingga',
+        province: 'Jawa Tengah',
+        postalCode: '53319',
+        phone: '08xxxxxxxxxx', // Ganti dengan nomor asli
+        notes: 'Mohon konfirmasi via WhatsApp sebelum mengirim hadiah fisik'
+    },
 
     // === PROTOKOL ACARA ===
     protocol: {
@@ -188,14 +200,14 @@ const CONFIG = {
 
     // === MUSIK ===
     music: {
-        src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', // Ganti dengan URL musik Anda
+        src: '/assets/music/music.mp3', // Ganti dengan URL musik Anda
         autoplay: true
     },
 
     // === TAMU KHUSUS DENGAN FOTO ===
     // Tamu dengan nama tertentu bisa punya foto profil custom
     specialGuests: {
-        'Budi Santoso': 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face',
+        'Wahyu Febri Tamtomo': 'https://frugaldev.biz.id/img/profile.jpg',
         'Siti Aminah': 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face'
     }
 };

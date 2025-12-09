@@ -96,6 +96,35 @@ class WeddingApp {
                 offset: 100
             });
         }
+
+        // Initialize section animations with Intersection Observer
+        this.initSectionAnimations();
+    }
+
+    // ========================================
+    // SECTION ANIMATIONS (Intersection Observer)
+    // ========================================
+    initSectionAnimations() {
+        const sections = document.querySelectorAll('.couple-section, .story-section, .events-section, .location-section, .rsvp-section, .messages-section, .gallery-section, .gift-section, .protocol-section, .closing-section');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    // Don't unobserve - keep watching in case user scrolls up
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
     }
 
     // ========================================
@@ -107,9 +136,19 @@ class WeddingApp {
         const updateCountdown = () => {
             const now = new Date();
             const diff = weddingDate - now;
+            const countdownEl = document.getElementById('countdown');
+            if (!countdownEl) return;
 
+            // Hari acara atau sudah lewat
             if (diff <= 0) {
-                document.getElementById('countdown').innerHTML = '<span class="text-2xl">🎉 Hari Bahagia Telah Tiba! 🎉</span>';
+                countdownEl.innerHTML = `
+                    <div class="countdown-live">
+                        <span class="live-icon">🎊</span>
+                        <span class="live-text">Acara Sedang Berlangsung</span>
+                        <span class="live-icon">🎊</span>
+                    </div>
+                `;
+                countdownEl.classList.add('countdown-celebration');
                 return;
             }
 
@@ -118,27 +157,39 @@ class WeddingApp {
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-            const countdownEl = document.getElementById('countdown');
-            if (countdownEl) {
-                countdownEl.innerHTML = `
-          <div class="countdown-item">
-            <span class="countdown-number">${days}</span>
-            <span class="countdown-label">Hari</span>
-          </div>
-          <div class="countdown-item">
-            <span class="countdown-number">${hours}</span>
-            <span class="countdown-label">Jam</span>
-          </div>
-          <div class="countdown-item">
-            <span class="countdown-number">${minutes}</span>
-            <span class="countdown-label">Menit</span>
-          </div>
-          <div class="countdown-item">
-            <span class="countdown-number">${seconds}</span>
-            <span class="countdown-label">Detik</span>
-          </div>
-        `;
+            // Tentukan warna berdasarkan hari tersisa
+            let urgencyClass = '';
+            if (days > 30) {
+                urgencyClass = 'countdown-relaxed';      // Hijau - masih lama
+            } else if (days > 7) {
+                urgencyClass = 'countdown-soon';         // Gold - mendekati
+            } else if (days > 1) {
+                urgencyClass = 'countdown-urgent';       // Orange - segera
+            } else {
+                urgencyClass = 'countdown-imminent';     // Merah - besok/hari ini
             }
+
+            // Reset dan apply class baru
+            countdownEl.className = urgencyClass;
+
+            countdownEl.innerHTML = `
+              <div class="countdown-item">
+                <span class="countdown-number">${days}</span>
+                <span class="countdown-label">Hari</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-number">${hours}</span>
+                <span class="countdown-label">Jam</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-number">${minutes}</span>
+                <span class="countdown-label">Menit</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-number">${seconds}</span>
+                <span class="countdown-label">Detik</span>
+              </div>
+            `;
         };
 
         updateCountdown();
@@ -412,6 +463,37 @@ class WeddingApp {
         </div>
       `;
         }
+
+        // Gift Address
+        this.populateGiftAddress();
+    }
+
+    populateGiftAddress() {
+        const giftAddressContainer = document.getElementById('giftAddressContainer');
+        if (!giftAddressContainer || !CONFIG.giftAddress || !CONFIG.giftAddress.enabled) return;
+
+        const { recipientName, address, city, province, postalCode, phone, notes } = CONFIG.giftAddress;
+        const fullAddress = `${recipientName}\n${address}\n${city}\n${province} ${postalCode}\nTelp: ${phone}`;
+
+        giftAddressContainer.innerHTML = `
+      <div class="gift-address-card glass-card p-6 rounded-2xl text-center max-w-md mx-auto" data-aos="fade-up">
+        <div class="text-4xl mb-4">🎁</div>
+        <h4 class="font-display font-semibold text-xl text-gray-800 dark:text-white mb-4">Alamat Pengiriman Hadiah</h4>
+        <div class="text-left bg-white/50 dark:bg-white/10 p-4 rounded-xl mb-4">
+          <p class="font-semibold text-gray-800 dark:text-white mb-1">${recipientName}</p>
+          <p class="text-gray-600 dark:text-gray-300 text-sm">${address}</p>
+          <p class="text-gray-600 dark:text-gray-300 text-sm">${city}</p>
+          <p class="text-gray-600 dark:text-gray-300 text-sm">${province} ${postalCode}</p>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
+            <i class="fas fa-phone text-primary mr-2"></i>${phone}
+          </p>
+        </div>
+        <button onclick="app.copyToClipboard(\`${fullAddress.replace(/\n/g, '\\n')}\`)" class="btn-secondary px-6 py-2 rounded-full text-sm">
+          <i class="fas fa-copy mr-2"></i>Salin Alamat
+        </button>
+        ${notes ? `<p class="text-xs text-gray-500 dark:text-gray-400 mt-4 italic"><i class="fas fa-info-circle mr-1"></i>${notes}</p>` : ''}
+      </div>
+    `;
     }
 
     populateProtocol() {
@@ -644,7 +726,7 @@ class WeddingApp {
     // ========================================
     copyToClipboard(text, elementId) {
         navigator.clipboard.writeText(text).then(() => {
-            this.showNotification('Nomor rekening berhasil disalin! 📋', 'success');
+            this.showNotification('Berhasil disalin!', 'success');
         }).catch(() => {
             // Fallback for older browsers
             const textArea = document.createElement('textarea');
@@ -653,7 +735,7 @@ class WeddingApp {
             textArea.select();
             document.execCommand('copy');
             document.body.removeChild(textArea);
-            this.showNotification('Nomor rekening berhasil disalin! 📋', 'success');
+            this.showNotification('Berhasil disalin!', 'success');
         });
     }
 
