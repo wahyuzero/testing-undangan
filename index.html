@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Undangan Pernikahan Ahmad & Aisyah - 14 Februari 2025">
+    <meta name="theme-color" content="#7c9885">
+
+    <title>Ahmad & Aisyah Wedding</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#7c9885',
+                            light: '#a8c4b0',
+                            dark: '#5a7661'
+                        },
+                        secondary: {
+                            DEFAULT: '#c9a87c',
+                            light: '#e0c9a8'
+                        },
+                        accent: {
+                            DEFAULT: '#d4a5a5',
+                            light: '#f0d4d4'
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'Georgia', 'serif'],
+                        elegant: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        body: ['Poppins', 'Segoe UI', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- ========================================
+       COVER / OPENING SECTION
+       ======================================== -->
+    <section id="cover">
+        <div class="cover-bg"></div>
+        <div class="cover-overlay"></div>
+
+        <!-- Decorative Elements -->
+        <div class="absolute top-10 left-10 opacity-20 text-white text-6xl">
+            <i class="fas fa-leaf"></i>
+        </div>
+        <div class="absolute top-10 right-10 opacity-20 text-white text-6xl transform -scale-x-100">
+            <i class="fas fa-leaf"></i>
+        </div>
+        <div class="absolute bottom-20 left-10 opacity-20 text-white text-4xl">
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="absolute bottom-20 right-10 opacity-20 text-white text-4xl">
+            <i class="fas fa-heart"></i>
+        </div>
+
+        <div class="cover-content">
+            <p class="cover-title">The Wedding of</p>
+
+            <div class="cover-ornament"></div>
+
+            <h1 class="cover-names">
+                <span class="groom-nickname">Ahmad</span>
+                <span class="ampersand">&</span>
+                <span class="bride-nickname">Aisyah</span>
+            </h1>
+
+            <div class="cover-ornament"></div>
+
+            <p class="cover-date">
+                <span class="wedding-date">Jumat, 14 Februari 2025</span>
+                <br>
+                <span class="wedding-city">Surabaya</span>
+            </p>
+
+            <!-- Guest Name from URL -->
+            <div class="cover-guest">
+                <p class="cover-guest-label">Kepada Yth.</p>
+                <p class="cover-guest-name guest-name">Tamu Undangan</p>
+            </div>
+
+            <!-- Countdown -->
+            <div id="countdown"></div>
+
+            <!-- Open Invitation Button -->
+            <button id="openInvitation" class="btn-primary mt-8" onclick="openInvitationHandler()">
+                <i class="fas fa-envelope-open-text mr-2"></i>
+                Buka Undangan
+            </button>
+
+            <script>
+                // Global function for opening invitation (fallback)
+                function openInvitationHandler() {
+                    console.log('openInvitationHandler called');
+                    const cover = document.getElementById('cover');
+                    const mainContent = document.getElementById('mainContent');
+                    if (cover && mainContent) {
+                        cover.style.display = 'none';
+                        mainContent.classList.remove('hidden');
+                        mainContent.style.display = 'block';
+                        console.log('Invitation opened successfully');
+                    } else {
+                        console.error('Cover or mainContent not found');
+                    }
+                }
+            </script>
+        </div>
+    </section>
+
+    <!-- ========================================
+       MAIN CONTENT (Hidden until opened)
+       ======================================== -->
+    <main id="mainContent" class="hidden">
+
+        <!-- ========================================
+         PROFIL MEMPELAI
+         ======================================== -->
+        <section id="couple" class="couple-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Bismillahirrahmanirrahim</p>
+                    <h2 class="section-title">Mempelai</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="couple-grid">
+                    <!-- Groom -->
+                    <div class="couple-card" data-aos="fade-right">
+                        <div class="couple-photo-wrapper">
+                            <div class="couple-photo-frame"></div>
+                            <img src="" alt="Mempelai Pria" class="couple-photo groom-photo">
+                        </div>
+                        <h3 class="couple-name groom-name">Muhammad Ahmad Fauzi</h3>
+                        <p class="couple-parents">
+                            <span class="groom-child-order">Putra pertama dari</span><br>
+                            <span class="groom-father">Bapak H. Sulaiman</span> & <span class="groom-mother">Ibu Hj.
+                                Fatimah</span>
+                        </p>
+                        <p class="couple-bio groom-bio"></p>
+                        <div id="groomSocial" class="couple-social"></div>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="couple-divider" data-aos="zoom-in">
+                        <div class="couple-divider-line"></div>
+                        <div class="couple-divider-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="couple-divider-line"></div>
+                    </div>
+
+                    <!-- Bride -->
+                    <div class="couple-card" data-aos="fade-left">
+                        <div class="couple-photo-wrapper">
+                            <div class="couple-photo-frame right"></div>
+                            <img src="" alt="Mempelai Wanita" class="couple-photo bride-photo">
+                        </div>
+                        <h3 class="couple-name bride-name">Aisyah Putri Ramadhani</h3>
+                        <p class="couple-parents">
+                            <span class="bride-child-order">Putri kedua dari</span><br>
+                            <span class="bride-father">Bapak H. Abdullah</span> & <span class="bride-mother">Ibu Hj.
+                                Khadijah</span>
+                        </p>
+                        <p class="couple-bio bride-bio"></p>
+                        <div id="brideSocial" class="couple-social"></div>
+                    </div>
+                </div>
+
+                <!-- Quote -->
+                <div class="quote-box glass-card" data-aos="fade-up">
+                    <p class="quote-text"></p>
+                    <p class="quote-source"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         KISAH CINTA (LOVE STORY)
+         ======================================== -->
+        <section id="story" class="story-section py-20">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Our Journey</p>
+                    <h2 class="section-title">Kisah Cinta Kami</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div id="storyTimeline">
+                    <!-- Timeline items will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         DETAIL ACARA
+         ======================================== -->
+        <section id="events" class="events-section py-20">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Save The Date</p>
+                    <h2 class="section-title">Rangkaian Acara</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div id="eventsContainer">
+                    <!-- Events will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         LOKASI
+         ======================================== -->
+        <section id="location" class="location-section py-20">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Location</p>
+                    <h2 class="section-title">Lokasi Acara</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="max-w-4xl mx-auto">
+                    <div class="map-container" data-aos="zoom-in">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.6044!2d112.7378!3d-7.2575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMTUnMjcuMCJTIDExMsKwNDQnMTYuMCJF!5e0!3m2!1sen!2sid!4v1234567890"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                    <div class="location-actions" data-aos="fade-up">
+                        <a href="https://maps.google.com/?q=Hotel+Majapahit+Surabaya" target="_blank"
+                            class="btn-primary">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            Buka di Google Maps
+                        </a>
+                        <button
+                            onclick="app.shareLocation('Hotel Majapahit Surabaya', 'https://maps.google.com/?q=Hotel+Majapahit+Surabaya')"
+                            class="btn-outline">
+                            <i class="fab fa-whatsapp mr-2"></i>
+                            Share via WhatsApp
+                        </button>
+                    </div>
+
+                    <div id="distanceDisplay" class="distance-display hidden" data-aos="fade-up">
+                        <i class="fas fa-route text-primary text-2xl mb-2"></i>
+                        <p class="text-gray-600 dark:text-gray-300">Jarak dari lokasi Anda: <span id="distanceValue"
+                                class="font-bold text-primary">-</span> km</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         RSVP & BUKU TAMU
+         ======================================== -->
+        <section id="rsvp" class="rsvp-section py-20">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Konfirmasi Kehadiran</p>
+                    <h2 class="section-title">RSVP</h2>
+                    <div class="section-divider"
+                        style="background: linear-gradient(90deg, #fff, rgba(255,255,255,0.5));"></div>
+                </div>
+
+                <div class="rsvp-form-container" data-aos="fade-up">
+                    <form id="rsvpForm" class="rsvp-form">
+                        <div class="form-group">
+                            <label for="rsvpName" class="form-label">Nama Lengkap</label>
+                            <input type="text" id="rsvpName" class="form-input" placeholder="Masukkan nama Anda"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rsvpAttendance" class="form-label">Konfirmasi Kehadiran</label>
+                            <select id="rsvpAttendance" class="form-select" required>
+                                <option value="">Pilih status kehadiran</option>
+                                <option value="hadir">✓ Hadir</option>
+                                <option value="tidak">✗ Tidak Hadir</option>
+                                <option value="ragu">? Masih Ragu</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rsvpGuests" class="form-label">Jumlah Tamu (termasuk Anda)</label>
+                            <select id="rsvpGuests" class="form-select">
+                                <option value="1">1 orang</option>
+                                <option value="2">2 orang</option>
+                                <option value="3">3 orang</option>
+                                <option value="4">4 orang</option>
+                                <option value="5">5 orang</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rsvpMessage" class="form-label">Ucapan & Doa</label>
+                            <textarea id="rsvpMessage" class="form-textarea"
+                                placeholder="Tulis ucapan dan doa untuk kedua mempelai..." required></textarea>
+                        </div>
+
+                        <button type="submit" id="rsvpSubmit" class="rsvp-submit">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Kirim Ucapan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         LIVE MESSAGE WALL
+         ======================================== -->
+        <section id="messages" class="messages-section py-20">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Wishes</p>
+                    <h2 class="section-title">Ucapan & Doa</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div id="messageWall">
+                    <!-- Messages will be loaded by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         GALLERY
+         ======================================== -->
+        <section id="gallery" class="gallery-section py-20">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Moments</p>
+                    <h2 class="section-title">Galeri Foto</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <!-- Gallery Filters -->
+                <div class="gallery-filters" data-aos="fade-up">
+                    <button class="gallery-filter active" data-category="all">Semua</button>
+                    <button class="gallery-filter" data-category="prewedding">Prewedding</button>
+                    <button class="gallery-filter" data-category="engagement">Engagement</button>
+                    <button class="gallery-filter" data-category="family">Keluarga</button>
+                </div>
+
+                <div id="galleryGrid">
+                    <!-- Gallery items will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         AMPLOP DIGITAL & GIFT
+         ======================================== -->
+        <section id="gift" class="gift-section py-20">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Wedding Gift</p>
+                    <h2 class="section-title">Amplop Digital</h2>
+                    <div class="section-divider"></div>
+                    <p class="max-w-xl mx-auto text-center text-gray-600 dark:text-gray-300 mt-4">
+                        Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda ingin memberikan
+                        tanda kasih, kami menyediakan amplop digital di bawah ini.
+                    </p>
+                </div>
+
+                <div id="giftAccounts">
+                    <!-- Bank accounts will be populated by JS -->
+                </div>
+
+                <div id="qrisContainer">
+                    <!-- QRIS will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         PROTOKOL & INFORMASI TEKNIS
+         ======================================== -->
+        <section id="protocol" class="protocol-section py-20">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Information</p>
+                    <h2 class="section-title">Informasi Acara</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="protocol-grid">
+                    <!-- Rules -->
+                    <div class="glass-card protocol-card" data-aos="fade-up" data-aos-delay="0">
+                        <h3><i class="fas fa-clipboard-list text-primary"></i> Aturan Tamu</h3>
+                        <ul id="protocolRules">
+                            <!-- Rules will be populated by JS -->
+                        </ul>
+                    </div>
+
+                    <!-- Arrival -->
+                    <div class="glass-card protocol-card" data-aos="fade-up" data-aos-delay="100">
+                        <h3><i class="fas fa-clock text-primary"></i> Waktu Kedatangan</h3>
+                        <p class="text-gray-600 dark:text-gray-300 arrival-time"></p>
+
+                        <h3 class="mt-6"><i class="fas fa-car text-primary"></i> Parkir</h3>
+                        <p class="text-gray-600 dark:text-gray-300 parking-info"></p>
+                    </div>
+
+                    <!-- Contact Person -->
+                    <div class="glass-card protocol-card" data-aos="fade-up" data-aos-delay="200">
+                        <h3><i class="fas fa-phone text-primary"></i> Contact Person</h3>
+                        <div id="contactPersons">
+                            <!-- Contact persons will be populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         PENUTUP
+         ======================================== -->
+        <section id="closing" class="closing-section py-20">
+            <div class="container">
+                <div class="closing-content" data-aos="fade-up">
+                    <div class="text-6xl mb-8 text-primary opacity-30">
+                        <i class="fas fa-pray"></i>
+                    </div>
+
+                    <p class="closing-message">
+                        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir
+                        untuk memberikan doa restu kepada kami.
+                    </p>
+
+                    <p class="closing-signature">Dengan penuh cinta,</p>
+                    <h3 class="closing-names">
+                        <span class="groom-nickname">Ahmad</span> & <span class="bride-nickname">Aisyah</span>
+                    </h3>
+
+                    <!-- Vendor Logo (optional) -->
+                    <div class="closing-vendor">
+                        <!-- <p>Organized by Wedding Organizer XYZ</p> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         FOOTER
+         ======================================== -->
+        <footer>
+            <p>
+                Made with <i class="fas fa-heart text-red-400"></i> by
+                <a href="https://frugaldev.biz.id">Frugaldev</a>
+            </p>
+            <p class="mt-2 opacity-70">© 2025 Kukuh & Fitriyani Wedding</p>
+        </footer>
+    </main>
+
+    <!-- ========================================
+       FLOATING CONTROLS
+       ======================================== -->
+    <div class="floating-controls">
+        <button id="musicToggle" class="floating-btn" title="Toggle Music">
+            <i class="fas fa-play"></i>
+        </button>
+        <button id="themeToggle" class="floating-btn" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <!-- ========================================
+       LIGHTBOX
+       ======================================== -->
+    <div id="lightbox" class="hidden">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="app.closeLightbox()">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="lightboxImage" src="" alt="">
+            <p id="lightboxCaption"></p>
+        </div>
+    </div>
+
+    <!-- ========================================
+       SCRIPTS
+       ======================================== -->
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Config -->
+    <script src="js/config.js"></script>
+
+    <!-- JSONBin API -->
+    <script src="js/jsonbin.js"></script>
+
+    <!-- Main App -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>
