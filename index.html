@@ -4,10 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Undangan Kukuh & Fitriyani - 21 Januari 2026">
+    <meta name="description" content="Undangan Kukuh & Fitriani - 21 Januari 2026">
     <meta name="theme-color" content="#7c9885">
 
-    <title>Kukuh & Fitriyani</title>
+    <!-- Open Graph / SEO -->
+    <meta property="og:title" content="The Wedding of Kukuh & Fitriani">
+    <meta property="og:description"
+        content="Rabu, 21 Januari 2026. Merupakan suatu kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&h=630&fit=crop">
+    <meta property="og:url" content="https://frugaldev.biz.id">
+    <meta property="og:type" content="website">
+
+    <title>Kukuh & Fitriani</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml"
@@ -64,6 +73,17 @@
 
 <body>
     <!-- ========================================
+       PRELOADER
+       ======================================== -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="heart-loader">
+                <i class="fas fa-heart"></i>
+            </div>
+            <p class="loading-text">K & F</p>
+        </div>
+    </div>
+    <!-- ========================================
        COVER / OPENING SECTION
        ======================================== -->
     <section id="cover">
@@ -71,23 +91,10 @@
         <div class="cover-overlay"></div>
 
         <!-- Floating Particles -->
-        <div class="particles-container">
-            <div class="particle">🌸</div>
-            <div class="particle">💕</div>
-            <div class="particle">🌺</div>
-            <div class="particle">✨</div>
-            <div class="particle">🌸</div>
-            <div class="particle">💗</div>
-            <div class="particle">🌷</div>
-            <div class="particle">✨</div>
-            <div class="particle">🌸</div>
-            <div class="particle">💕</div>
-            <div class="particle">🌺</div>
-            <div class="particle">💗</div>
-            <div class="particle">🌷</div>
-            <div class="particle">✨</div>
-            <div class="particle">🌸</div>
-        </div>
+        <!-- Premium Particles Canvas -->
+        <canvas id="flowerCanvas" class="flower-canvas"></canvas>
+
+
 
         <!-- Animated Decorative Elements -->
         <div class="cover-decor cover-decor-top-left">
@@ -109,17 +116,17 @@
             <div class="cover-ornament"></div>
 
             <h1 class="cover-names">
-                <span class="groom-nickname">Ahmad</span>
+                <span class="groom-nickname">The Groom</span>
                 <span class="ampersand">&</span>
-                <span class="bride-nickname">Aisyah</span>
+                <span class="bride-nickname">The Bride</span>
             </h1>
 
             <div class="cover-ornament"></div>
 
             <p class="cover-date">
-                <span class="wedding-date">Jumat, 14 Februari 2025</span>
+                <span class="wedding-date">Save The Date</span>
                 <br>
-                <span class="wedding-city">Surabaya</span>
+                <!-- <span class="wedding-city"></span> -->
             </p>
 
             <!-- Guest Name from URL -->
@@ -212,11 +219,9 @@
 
                     <!-- Divider -->
                     <div class="couple-divider" data-aos="zoom-in">
-                        <div class="couple-divider-line"></div>
                         <div class="couple-divider-icon">
                             <i class="fas fa-heart"></i>
                         </div>
-                        <div class="couple-divider-line"></div>
                     </div>
 
                     <!-- Bride -->
@@ -245,8 +250,26 @@
         </section>
 
         <!-- ========================================
-         KISAH CINTA (LOVE STORY)
+         DOA & HARAPAN (PRAYERS & WISHES)
          ======================================== -->
+        <section id="prayers" class="prayers-section py-20">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Blessings</p>
+                    <h2 class="section-title">Doa & Harapan</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div id="prayersContainer">
+                    <!-- Prayers will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         KISAH CINTA (LOVE STORY) - COMMENTED
+         ======================================== -->
+        <!--         
         <section id="story" class="story-section py-20">
             <div class="container">
                 <div class="section-header" data-aos="fade-up">
@@ -257,9 +280,10 @@
 
                 <div id="storyTimeline">
                     <!-- Timeline items will be populated by JS -->
-                </div>
-            </div>
+        </div>
+        </div>
         </section>
+        -->
 
         <!-- ========================================
          DETAIL ACARA
@@ -364,6 +388,11 @@
                             <label for="rsvpName" class="form-label">Nama Lengkap</label>
                             <input type="text" id="rsvpName" class="form-input" placeholder="Masukkan nama Anda"
                                 required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rsvpPhone" class="form-label">No. WhatsApp (Boleh Kosong)</label>
+                            <input type="tel" id="rsvpPhone" class="form-input" placeholder="08xxxxxxxxxx">
                         </div>
 
                         <div class="form-group">
@@ -573,11 +602,11 @@
          FOOTER
          ======================================== -->
         <footer>
+            <p class="mt-2 opacity-70">Kukuh & Fitriani</p>
             <p>
-                Made by
+                Created by
                 <a href="https://frugaldev.biz.id">Frugaldev</a>
             </p>
-            <p class="mt-2 opacity-70">Kukuh & Fitriyani</p>
         </footer>
     </main>
 
@@ -617,6 +646,9 @@
 
     <!-- JSONBin API -->
     <script src="js/jsonbin.js"></script>
+
+    <!-- Toast Notifications -->
+    <script src="js/toast.js"></script>
 
     <!-- Main App -->
     <script src="js/app.js"></script>

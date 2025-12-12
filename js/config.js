@@ -10,19 +10,19 @@ const CONFIG = {
     // Buat Access Key di: https://jsonbin.io/access-keys dengan permission Read + Update Bins
     jsonbin: {
         binId: '69377cded0ea881f401be286',
-        accessKey: '$2a$10$ZphDaaB/oLKhqdwgRd82muLLJvuzcbrUGdGiNjB2MfTbIND6eIlCK' // Ganti dengan Access Key Anda
+        accessKey: '$2a$10$vhb4wS1kT46UDn1caaOt0eukxI/Or4f7wPEBub813DsfmDImNQMuK' // Ganti dengan Access Key Anda
     },
 
     // === DATA MEMPELAI PRIA ===
     groom: {
         fullName: 'Kukuh Widiyanto',
         nickname: 'Kukuh',
-        photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop&crop=face',
+        photo: '/assets/images/groom.png',
         fatherName: 'Bapak Suratman',
-        motherName: 'Sri Muryani',
+        motherName: 'Ibu Sri Muryani',
         childOrder: 'Putra pertama dari',
-        city: 'Surabaya',
-        bio: 'Seorang insinyur software yang mencintai kopi dan coding. Percaya bahwa cinta sejati adalah yang tumbuh bersama dalam iman.',
+        city: 'Purbalingga',
+        bio: '',
         instagram: 'https://www.instagram.com/kukuhtuyen',
         twitter: '',
         linkedin: ''
@@ -32,12 +32,12 @@ const CONFIG = {
     bride: {
         fullName: 'Fitriani Desi Pratiwi',
         nickname: 'Fitriani',
-        photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=500&fit=crop&crop=face',
-        fatherName: 'Sahid',
-        motherName: 'Sulyati',
+        photo: '/assets/images/bride.png',
+        fatherName: 'Bapak Sahid',
+        motherName: 'Ibu Sulyati',
         childOrder: 'Putri kedua dari',
-        city: 'Malang',
-        bio: 'Dokter muda yang passionate tentang kesehatan anak. Meyakini bahwa keluarga harmonis adalah fondasi masyarakat yang sehat.',
+        city: 'Banjarnegara',
+        bio: '',
         instagram: 'https://www.instagram.com/fitrianidesipratiwi',
         twitter: '',
         linkedin: ''
@@ -87,7 +87,54 @@ const CONFIG = {
         }
     ],
 
-    // === KISAH CINTA ===
+    // === DOA & HARAPAN ===
+    prayers: [
+        {
+            category: 'Doa Pernikahan',
+            title: 'Doa Kelancaran Pernikahan',
+            content: 'وَأَلَّفَ بَيْنَ قُلُوبِهِمْ لَوْ أَنْفَقْتَ مَا فِي الْأَرْضِ جَمِيعًا مَا أَلَّفْتَ بَيْنَ قُلُوبِهِمْ وَلَٰكِنَّ اللَّهَ أَلَّفَ بَيْنَهُمْ',
+            translation: 'Dan Dia mempersatukan hati mereka. Sekiranya kamu menghabiskan semua yang (ada) di bumi, niscaya kamu tidak dapat mempersatukan hati mereka, akan tetapi Allah telah mempersatukan mereka. (QS. Al-Anfal: 63)',
+            icon: 'fa-hands-praying'
+        },
+        {
+            category: 'Doa Pernikahan',
+            title: 'Doa Keluarga Sakinah',
+            content: 'رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا',
+            translation: 'Wahai Tuhan kami, anugerahkanlah kepada kami pasangan dan keturunan yang menjadi penyejuk hati (kami), dan jadikanlah kami pemimpin bagi orang-orang yang bertakwa. (QS. Al-Furqan: 74)',
+            icon: 'fa-heart'
+        },
+        {
+            category: 'Harapan',
+            title: 'Membangun Rumah Tangga',
+            content: 'Semoga Allah SWT senantiasa melimpahkan rahmat dan berkah-Nya atas pernikahan kami, sehingga kami dapat membangun rumah tangga yang sakinah, mawaddah, warahmah.',
+            translation: '',
+            icon: 'fa-home'
+        },
+        {
+            category: 'Harapan',
+            title: 'Keberkahan dan Kesejahteraan',
+            content: 'Semoga pernikahan ini membawa keberkahan dalam kehidupan dunia dan akhirat, serta menjadi awal dari perjalanan penuh cinta, kebahagiaan, dan kesejahteraan bersama.',
+            translation: '',
+            icon: 'fa-dove'
+        },
+        {
+            category: 'Ucapan Terima Kasih',
+            title: 'Untuk Orang Tua',
+            content: 'Terima kasih kami ucapkan kepada kedua orang tua yang telah mendidik kami dengan penuh kasih sayang, serta merestui pernikahan kami. Doa kalian adalah bekal terberharga dalam perjalanan kami.',
+            translation: '',
+            icon: 'fa-hands-helping'
+        },
+        {
+            category: 'Ucapan Terima Kasih',
+            title: 'Untuk Para Sahabat',
+            content: 'Terima kasih untuk sahabat-sahabat yang telah mendukung perjalanan cinta kami, dari awal pertemuan hingga saat ini. Kehadiran kalian adalah anugerah yang tak ternilai.',
+            translation: '',
+            icon: 'fa-users'
+        }
+    ],
+
+    // === KISAH CINTA (COMMENTED) ===
+    /*
     loveStory: [
         {
             phase: 'Pertemuan',
@@ -118,23 +165,35 @@ const CONFIG = {
             photo: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=400&fit=crop'
         }
     ],
+    */
 
     // === GALLERY ===
     gallery: {
         prewedding: [
-            { src: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&h=600&fit=crop', caption: 'Prewedding - Beach' },
-            { src: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop', caption: 'Prewedding - Garden' },
-            { src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&h=600&fit=crop', caption: 'Prewedding - Sunset' },
-            { src: 'https://images.unsplash.com/photo-1460978812857-470ed1c77af0?w=800&h=600&fit=crop', caption: 'Prewedding - Studio' }
+            { src: '/assets/images/1.jpeg', caption: 'Prewedding' },
+            { src: '/assets/images/2.jpeg', caption: 'Prewedding' },
+            { src: '/assets/images/3.jpeg', caption: 'Prewedding' },
+            { src: '/assets/images/4.jpeg', caption: 'Prewedding' },
+            { src: '/assets/images/5.jpeg', caption: 'Prewedding' }
         ],
         engagement: [
-            { src: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=800&h=600&fit=crop', caption: 'Engagement Day' },
-            { src: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&h=600&fit=crop', caption: 'Ring Exchange' },
-            { src: 'https://images.unsplash.com/photo-1544078751-58fee2d8a03b?w=800&h=600&fit=crop', caption: 'Family Celebration' }
+            { src: '/assets/images/foto9.jpg', caption: 'Engagement' },
+            { src: '/assets/images/foto10.jpg', caption: 'Engagement' },
+            { src: '/assets/images/foto11.jpg', caption: 'Engagement' },
+            { src: '/assets/images/foto12.jpg', caption: 'Engagement' },
+            { src: '/assets/images/foto13.jpg', caption: 'Engagement' },
+            { src: '/assets/images/foto14.jpg', caption: 'Engagement' },
+            { src: '/assets/images/foto15.jpg', caption: 'Engagement' },
+            { src: '/assets/images/foto1.jpg', caption: 'Ring Exchange' },
+            { src: '/assets/images/foto2.jpg', caption: 'Family Celebration' },
+            { src: '/assets/images/foto3.jpg', caption: 'Family Celebration' },
+            { src: '/assets/images/foto4.jpg', caption: 'Family Celebration' }
         ],
         family: [
-            { src: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&h=600&fit=crop', caption: 'Family Portrait' },
-            { src: 'https://images.unsplash.com/photo-1516589091380-5d8e87df6999?w=800&h=600&fit=crop', caption: 'Parents Meeting' }
+            { src: '/assets/images/foto5.jpg', caption: 'Family Portrait' },
+            { src: '/assets/images/foto6.jpg', caption: 'Parents Meeting' },
+            { src: '/assets/images/foto7.jpg', caption: 'Parents Meeting' },
+            { src: '/assets/images/foto8.jpg', caption: 'Parents Meeting' }
         ]
     },
 
@@ -159,31 +218,32 @@ const CONFIG = {
             logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/BRI_2025.svg/2560px-BRI_2025.svg.png'
         }
     ],
-    qrisImage: 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=00020101021126670016COM.NOBUBANK.WWW01189360010300000898240214NMID0001234567030300040520415204541253033605802ID5913AHMAD%20FAUZI6007JAKARTA61051234062070703A0163049E4F',
+    // qrisImage: 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=00020101021126670016COM.NOBUBANK.WWW01189360010300000898240214NMID0001234567030300040520415204541253033605802ID5913AHMAD%20FAUZI6007JAKARTA61051234062070703A0163049E4F',
+    qrisImage: '',
 
     // === ALAMAT HADIAH PERNIKAHAN ===
     giftAddress: {
         enabled: true,
         recipientName: 'Kukuh Widiyanto',
-        address: 'RT. 02 RW. 05 Kel. Penambongan Kec. Purbalingga Kab. Purbalingga',
+        address: 'RT. 02 RW. 05, Kel. Penambongan, Kec. Purbalingga',
         city: 'Kab. Purbalingga',
         province: 'Jawa Tengah',
         postalCode: '53319',
-        phone: '08xxxxxxxxxx', // Ganti dengan nomor asli
+        phone: '085877116616', // Ganti dengan nomor asli
         notes: 'Mohon konfirmasi via WhatsApp sebelum mengirim hadiah fisik'
     },
 
     // === PROTOKOL ACARA ===
     protocol: {
         rules: [
-            'Tamu diharapkan hadir tepat waktu sesuai jadwal',
-            'Menggunakan dresscode yang telah ditentukan',
-            'Tidak membawa anak di bawah 5 tahun ke acara resepsi',
-            'Menjaga protokol kesehatan',
+            'Tamu diharapkan hadir sesuai jadwal',
+            // 'Menggunakan dresscode yang telah ditentukan',
+            // 'Tidak membawa anak di bawah 5 tahun ke acara resepsi',
+            'Menjaga protokol keselamatan',
             'Dilarang merokok di area indoor'
         ],
-        arrivalTime: 'Harap hadir 30 menit sebelum acara dimulai',
-        parking: 'Parkir tersedia di basement Hotel Majapahit (valet parking available)',
+        arrivalTime: 'Diharapkan bisa hadir sebelum acara dimulai',
+        parking: 'Parkir secara rapi di tempat yang sudah disediakan',
         contactPersons: [
             { name: 'Rizki (WO)', phone: '081234567890' },
             { name: 'Dian (Family)', phone: '089876543210' }
@@ -195,13 +255,20 @@ const CONFIG = {
         message: 'Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.',
         signature: 'Dengan penuh cinta,',
         vendorLogo: '', // URL logo WO/vendor (opsional)
-        vendorName: 'Organized by Wedding Organizer XYZ'
+        vendorName: 'Frugaldev'
     },
 
     // === MUSIK ===
     music: {
         src: '/assets/music/music.mp3', // Ganti dengan URL musik Anda
         autoplay: true
+    },
+
+    // === BACKGROUNDS ===
+    backgrounds: {
+        // Placeholder images from Unsplash
+        couple: '/assets/images/main.webp',
+        closing: '/assets/images/footer.webp'
     },
 
     // === TAMU KHUSUS DENGAN FOTO ===

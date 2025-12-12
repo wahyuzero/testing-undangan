@@ -97,6 +97,73 @@ class JSONBinAPI {
         }
     }
 
+    // Tambah like/reaction
+    async addReaction(messageId, type = 'love') {
+        try {
+            const data = await this.getData();
+            if (!data.guests) return false;
+
+            const guestIndex = data.guests.findIndex(g => g.id === messageId);
+            if (guestIndex === -1) return false;
+
+            // Initialize reactions if not exists
+            if (!data.guests[guestIndex].reactions) {
+                data.guests[guestIndex].reactions = {};
+            }
+
+            // Initialize specific reaction type
+            if (!data.guests[guestIndex].reactions[type]) {
+                data.guests[guestIndex].reactions[type] = 0;
+            }
+
+            data.guests[guestIndex].reactions[type]++;
+
+            // Update bin
+            const response = await fetch(`${this.baseUrl}/b/${this.binId}`, {
+                method: 'PUT',
+                headers: this.getHeaders(),
+                body: JSON.stringify(data)
+            });
+
+            return response.ok;
+        } catch (error) {
+            console.error('Error adding reaction:', error);
+            return false;
+        }
+    }
+
+    // Tambah reply
+    async addReply(messageId, replyData) {
+        try {
+            const data = await this.getData();
+            if (!data.guests) return false;
+
+            const guestIndex = data.guests.findIndex(g => g.id === messageId);
+            if (guestIndex === -1) return false;
+
+            // Initialize replies if not exists
+            if (!data.guests[guestIndex].replies) data.guests[guestIndex].replies = [];
+
+            data.guests[guestIndex].replies.push({
+                ...replyData,
+                id: Date.now(),
+                timestamp: new Date().toISOString()
+            });
+
+            // Update bin
+            const response = await fetch(`${this.baseUrl}/b/${this.binId}`, {
+                method: 'PUT',
+                headers: this.getHeaders(),
+                body: JSON.stringify(data)
+            });
+
+            return response.ok;
+        } catch (error) {
+            console.error('Error adding reply:', error);
+            return false;
+        }
+    }
+
     // Ambil semua guest messages untuk live wall
     async getMessages() {
         try {
