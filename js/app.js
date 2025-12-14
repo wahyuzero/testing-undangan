@@ -91,11 +91,13 @@ class WeddingApp {
     // ========================================
     initAOS() {
         if (typeof AOS !== 'undefined') {
+            const isMobile = window.innerWidth < 768;
             AOS.init({
-                duration: 800,
-                easing: 'ease-in-out',
+                duration: isMobile ? 400 : 800,
+                easing: 'ease-out',
                 once: true,
-                offset: 100
+                offset: isMobile ? 50 : 100,
+                disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
             });
         }
 
@@ -139,7 +141,6 @@ class WeddingApp {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate-in');
-                    // Don't unobserve - keep watching in case user scrolls up
                 }
             });
         }, observerOptions);
@@ -182,16 +183,15 @@ class WeddingApp {
             // Tentukan warna berdasarkan hari tersisa
             let urgencyClass = '';
             if (days > 30) {
-                urgencyClass = 'countdown-relaxed';      // Hijau - masih lama
+                urgencyClass = 'countdown-relaxed';
             } else if (days > 7) {
-                urgencyClass = 'countdown-soon';         // Gold - mendekati
+                urgencyClass = 'countdown-soon';
             } else if (days > 1) {
-                urgencyClass = 'countdown-urgent';       // Orange - segera
+                urgencyClass = 'countdown-urgent';
             } else {
-                urgencyClass = 'countdown-imminent';     // Merah - besok/hari ini
+                urgencyClass = 'countdown-imminent';
             }
 
-            // Reset dan apply class baru
             countdownEl.className = urgencyClass;
 
             countdownEl.innerHTML = `
@@ -331,8 +331,9 @@ class WeddingApp {
             }
         }
 
-        // Initialize Petals
-        const petalCount = 30;
+        // Initialize Petals - reduced count on mobile for performance
+        const isMobile = window.innerWidth < 768;
+        const petalCount = isMobile ? 12 : 25;
         for (let i = 0; i < petalCount; i++) {
             petals.push(new Petal());
         }
@@ -422,6 +423,9 @@ class WeddingApp {
         // Events
         this.populateEvents();
 
+        // Locations (with lazy-loaded maps)
+        this.populateLocations();
+
         // Love story
         this.populateLoveStory();
 
@@ -475,6 +479,19 @@ class WeddingApp {
 
         eventsContainer.innerHTML = CONFIG.events.map((event, index) => {
             const calendarLink = this.generateCalendarLink(event);
+
+            // Format date - handle multi-day events
+            let dateDisplay = this.formatDate(event.date);
+            if (event.endDate && event.endDate !== event.date) {
+                const startDate = new Date(event.date);
+                const endDate = new Date(event.endDate);
+                const startDay = startDate.getDate();
+                const endDay = endDate.getDate();
+                const month = startDate.toLocaleDateString('id-ID', { month: 'long' });
+                const year = startDate.getFullYear();
+                dateDisplay = `${startDay} - ${endDay} ${month} ${year}`;
+            }
+
             return `
       <div class="event-card glass-card p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="${index * 100}">
         <div class="flex items-center gap-4 mb-4">
@@ -483,13 +500,13 @@ class WeddingApp {
           </div>
           <div>
             <h3 class="text-xl font-display font-bold text-primary dark:text-primary-light">${event.name}</h3>
-            <p class="text-gray-600 dark:text-gray-300">${this.formatDate(event.date)}</p>
+            <p class="text-gray-600 dark:text-gray-300">${dateDisplay}</p>
           </div>
         </div>
         <div class="space-y-3 text-gray-700 dark:text-gray-200">
           <div class="flex items-center gap-3">
             <i class="fas fa-clock text-primary"></i>
-            <span>${event.startTime} - ${event.endTime} ${CONFIG.wedding.timezone}</span>
+            <span>${event.startTime} ${CONFIG.wedding.timezone} - Selesai</span>
           </div>
           <div class="flex items-center gap-3">
             <i class="fas fa-location-dot text-primary"></i>
@@ -521,6 +538,81 @@ class WeddingApp {
         </div>
       </div>
     `}).join('');
+    }
+
+    populateLocations() {
+        const locationsContainer = document.getElementById('locationsContainer');
+        if (!locationsContainer) return;
+
+        locationsContainer.innerHTML = CONFIG.events.map((event, index) => `
+      <div class="location-card glass-card p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="${index * 100}">
+        <div class="location-header mb-4">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+              <i class="fas ${event.icon} text-white"></i>
+            </div>
+            <h3 class="text-xl font-display font-bold text-primary dark:text-primary-light">${event.name}</h3>
+          </div>
+          <p class="text-sm text-gray-600 dark:text-gray-300">${event.venue}</p>
+          <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">${event.address}</p>
+        </div>
+        <div class="map-container rounded-xl overflow-hidden mb-4" data-embed="${event.mapsEmbed}">
+          <div class="map-placeholder flex items-center justify-center bg-gray-100 dark:bg-gray-800 h-64">
+            <div class="text-center">
+              <i class="fas fa-map-marked-alt text-4xl text-primary mb-2"></i>
+              <p class="text-sm text-gray-500">Memuat peta...</p>
+            </div>
+          </div>
+        </div>
+        <div class="location-actions flex gap-2">
+          <a href="${event.mapsUrl}" target="_blank" class="btn-primary flex-1 text-center py-2 rounded-lg text-sm">
+            <i class="fas fa-map-marker-alt mr-2"></i>Buka Maps
+          </a>
+          <button onclick="app.shareLocation('${event.name}', '${event.mapsUrl}')" class="btn-outline px-4 py-2 rounded-lg">
+            <i class="fab fa-whatsapp"></i>
+          </button>
+        </div>
+      </div>
+    `).join('');
+
+        // Lazy load maps when section comes into view
+        this.lazyLoadMaps();
+    }
+
+    lazyLoadMaps() {
+        const mapContainers = document.querySelectorAll('.map-container[data-embed]');
+
+        const mapObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const container = entry.target;
+                    const embedUrl = container.dataset.embed;
+
+                    if (embedUrl && !container.querySelector('iframe')) {
+                        container.innerHTML = `
+              <iframe
+                src="${embedUrl}"
+                width="100%"
+                height="256"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            `;
+                    }
+
+                    mapObserver.unobserve(container);
+                }
+            });
+        }, {
+            rootMargin: '100px',
+            threshold: 0.1
+        });
+
+        mapContainers.forEach(container => {
+            mapObserver.observe(container);
+        });
     }
 
     populateLoveStory() {
@@ -835,18 +927,26 @@ class WeddingApp {
         }
 
         // Save to JSONBin
+        console.log('📤 Attempting to save RSVP...');
         const result = await jsonBinAPI.saveData(formData);
+        console.log('📥 Save result:', result);
 
         if (result.success) {
             this.showNotification('Terima kasih atas ucapan Anda! 💕', 'success');
             e.target.reset();
 
-            // Redirect to messages section
+            // Refresh messages without page reload
+            await this.loadMessages();
+
+            // Scroll to messages section smoothly
             setTimeout(() => {
-                window.location.href = window.location.pathname + window.location.search + '#messages';
-                window.location.reload();
-            }, 1500);
+                const messagesSection = document.getElementById('messages');
+                if (messagesSection) {
+                    messagesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 500);
         } else {
+            console.error('❌ RSVP save failed:', result.error);
             this.showNotification('Gagal mengirim ucapan. Silakan coba lagi.', 'error');
         }
 

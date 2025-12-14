@@ -43,8 +43,12 @@ class JSONBinAPI {
     // Simpan data baru ke bin
     async saveData(newData) {
         try {
+            console.log('📤 Saving data to JSONBin...');
+            console.log('New data:', newData);
+
             // Ambil data existing
             const existingData = await this.getData();
+            console.log('Existing data:', existingData);
 
             // Tambahkan guest baru
             if (!existingData.guests) {
@@ -57,6 +61,8 @@ class JSONBinAPI {
 
             existingData.guests.unshift(newData); // Tambah di awal array
 
+            console.log('Data to save:', existingData);
+
             // Update bin
             const response = await fetch(`${this.baseUrl}/b/${this.binId}`, {
                 method: 'PUT',
@@ -64,15 +70,20 @@ class JSONBinAPI {
                 body: JSON.stringify(existingData)
             });
 
+            console.log('Response status:', response.status);
+
             if (!response.ok) {
                 const errorText = await response.text();
-                console.error('JSONBin Save Error:', errorText);
-                throw new Error(`HTTP error! status: ${response.status}`);
+                console.error('❌ JSONBin Save Error:', errorText);
+                throw new Error(`HTTP error! status: ${response.status} - ${errorText}`);
             }
+
+            const result = await response.json();
+            console.log('✅ Save successful:', result);
 
             return { success: true, data: newData };
         } catch (error) {
-            console.error('Error saving data:', error);
+            console.error('❌ Error saving data:', error);
             return { success: false, error: error.message };
         }
     }

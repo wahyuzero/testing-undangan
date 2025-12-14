@@ -9,8 +9,15 @@ const CONFIG = {
     // Gunakan Access Key (bukan Master Key) untuk keamanan frontend
     // Buat Access Key di: https://jsonbin.io/access-keys dengan permission Read + Update Bins
     jsonbin: {
-        binId: '69377cded0ea881f401be286',
+        binId: '693e214b43b1c97be9ecb25e',
         accessKey: '$2a$10$vhb4wS1kT46UDn1caaOt0eukxI/Or4f7wPEBub813DsfmDImNQMuK' // Ganti dengan Access Key Anda
+    },
+
+    // === JSONBIN UNTUK DATA TAMU (Buat bin baru untuk ini) ===
+    // Struktur: { "invitedGuests": [], "specialGuests": [] }
+    jsonbinGuests: {
+        binId: 'YOUR_GUESTS_BIN_ID', // Ganti dengan Bin ID baru
+        accessKey: '$2a$10$vhb4wS1kT46UDn1caaOt0eukxI/Or4f7wPEBub813DsfmDImNQMuK' // Bisa sama dengan accessKey di atas
     },
 
     // === DATA MEMPELAI PRIA ===
@@ -68,24 +75,26 @@ const CONFIG = {
             venue: 'Rumah Mempelai Wanita',
             address: 'Jalan Selaraga, Desa Sirkandi Rt 06/05, Purwareja Klampok, Banjarnegara, Jawa Tengah',
             mapsUrl: 'https://maps.app.goo.gl/ird8wX5NoLY2TtYz5',
-            mapsEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.6044!2d112.7378!3d-7.2575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMTUnMjcuMCJTIDExMsKwNDQnMTYuMCJF!5e0!3m2!1sen!2sid!4v1234567890',
+            mapsEmbed: 'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3955.4845707929767!2d109.45063599999999!3d-7.522005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zN8KwMzEnMTkuMiJTIDEwOcKwMjcnMDIuMyJF!5e0!3m2!1sid!2sid!4v1765289411373!5m2!1sid!2sid',
             dresscode: 'Putih & Sage Green',
             icon: 'fa-ring'
         },
         {
             id: 'resepsi',
             name: 'Resepsi',
-            date: '2026-01-19',
+            date: '2026-01-18',
+            endDate: '2026-01-19',
             startTime: '12:00',
             endTime: '15:00',
             venue: 'Rumah Mempelai Pria',
             address: 'RT. 02 RW. 05 Kel. Penambongan Kec. Purbalingga Kab. Purbalingga',
             mapsUrl: 'https://maps.app.goo.gl/ohxNSJ1d75EXFrNH7',
-            mapsEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.6044!2d112.7378!3d-7.2575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMTUnMjcuMCJTIDExMsKwNDQnMTYuMCJF!5e0!3m2!1sen!2sid!4v1234567890',
+            mapsEmbed: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d247.28707365419965!2d109.3693694!3d-7.3993971!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6559d058a8f13b%3A0x19695c3a79517a49!2sJ929%2B7PX%2C%20Penambongan%2C%20Kec.%20Purbalingga%2C%20Kabupaten%20Purbalingga%2C%20Jawa%20Tengah%2053314!5e0!3m2!1sid!2sid!4v1765678527796!5m2!1sid!2sid',
             dresscode: 'Formal - Earth Tone',
             icon: 'fa-champagne-glasses'
         }
     ],
+
 
     // === DOA & HARAPAN ===
     prayers: [
@@ -172,9 +181,6 @@ const CONFIG = {
         prewedding: [
             { src: '/assets/images/1.jpeg', caption: 'Prewedding' },
             { src: '/assets/images/2.jpeg', caption: 'Prewedding' },
-            { src: '/assets/images/3.jpeg', caption: 'Prewedding' },
-            { src: '/assets/images/4.jpeg', caption: 'Prewedding' },
-            { src: '/assets/images/5.jpeg', caption: 'Prewedding' }
         ],
         engagement: [
             { src: '/assets/images/foto9.jpg', caption: 'Engagement' },
@@ -184,6 +190,8 @@ const CONFIG = {
             { src: '/assets/images/foto13.jpg', caption: 'Engagement' },
             { src: '/assets/images/foto14.jpg', caption: 'Engagement' },
             { src: '/assets/images/foto15.jpg', caption: 'Engagement' },
+            { src: '/assets/images/16.jpeg', caption: 'Engagement' },
+            { src: '/assets/images/17.jpeg', caption: 'Engagement' },
             { src: '/assets/images/foto1.jpg', caption: 'Ring Exchange' },
             { src: '/assets/images/foto2.jpg', caption: 'Family Celebration' },
             { src: '/assets/images/foto3.jpg', caption: 'Family Celebration' },
@@ -216,6 +224,12 @@ const CONFIG = {
             accountNumber: '372601002694507',
             accountName: 'Kukuh Widiyanto',
             logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/BRI_2025.svg/2560px-BRI_2025.svg.png'
+        },
+        {
+            bank: 'Bank Jateng',
+            accountNumber: '2027254490',
+            accountName: 'Kukuh Widiyanto',
+            logo: 'https://upload.wikimedia.org/wikipedia/id/thumb/c/c4/Bank_Jateng_logo.svg/2560px-Bank_Jateng_logo.svg.png'
         }
     ],
     // qrisImage: 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=00020101021126670016COM.NOBUBANK.WWW01189360010300000898240214NMID0001234567030300040520415204541253033605802ID5913AHMAD%20FAUZI6007JAKARTA61051234062070703A0163049E4F',
