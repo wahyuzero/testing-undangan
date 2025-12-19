@@ -695,8 +695,8 @@ class WeddingApp {
 
         // 2. Initial state
         this.currentGalleryFilter = 'all';
-        this.visibleGalleryCount = 6;
-        this.galleryIncrement = 6;
+        this.visibleGalleryCount = 8;
+        this.galleryIncrement = 8;
 
         // 3. Render
         this.renderGallery();
