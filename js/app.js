@@ -22,6 +22,7 @@ class WeddingApp {
             this.initPreloader();
             this.initAOS();
             this.initCountdown();
+            this.initMainCountdown(); // Main content countdown
             this.initMusic();
             this.initTheme();
             this.initFlowers(); // New Premium Effect
@@ -218,6 +219,55 @@ class WeddingApp {
         setInterval(updateCountdown, 1000);
     }
 
+    // ========================================
+    // MAIN COUNTDOWN (In content area)
+    // ========================================
+    initMainCountdown() {
+        const weddingDate = new Date(`${CONFIG.wedding.date}T${CONFIG.wedding.time}:00`);
+        const mainCountdownEl = document.getElementById('mainCountdownTimer');
+        if (!mainCountdownEl) return;
+
+        const updateMainCountdown = () => {
+            const now = new Date();
+            const diff = weddingDate - now;
+
+            if (diff <= 0) {
+                mainCountdownEl.innerHTML = `
+                    <div class="countdown-celebration p-6 rounded-xl">
+                        <span class="text-2xl">🎊 Hari Bahagia Telah Tiba! 🎊</span>
+                    </div>
+                `;
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            mainCountdownEl.innerHTML = `
+                <div class="countdown-box">
+                    <span class="countdown-box-number">${days}</span>
+                    <span class="countdown-box-label">Hari</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-box-number">${hours}</span>
+                    <span class="countdown-box-label">Jam</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-box-number">${minutes}</span>
+                    <span class="countdown-box-label">Menit</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-box-number">${seconds}</span>
+                    <span class="countdown-box-label">Detik</span>
+                </div>
+            `;
+        };
+
+        updateMainCountdown();
+        setInterval(updateMainCountdown, 1000);
+    }
     // ========================================
     // MUSIC PLAYER
     // ========================================

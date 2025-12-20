@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Undangan Kukuh & Fitriani - 21 Januari 2026">
-    <meta name="theme-color" content="#7c9885">
+    <meta name="theme-color" content="#1e3a5f">
 
     <!-- Open Graph / SEO -->
     <meta property="og:title" content="The Wedding of Kukuh & Fitriani">
@@ -25,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
     <!-- Tailwind CSS -->
@@ -37,22 +37,23 @@
                 extend: {
                     colors: {
                         primary: {
-                            DEFAULT: '#7c9885',
-                            light: '#a8c4b0',
-                            dark: '#5a7661'
+                            DEFAULT: '#1e3a5f',
+                            light: '#2d5a87',
+                            dark: '#0f2744'
                         },
                         secondary: {
-                            DEFAULT: '#c9a87c',
-                            light: '#e0c9a8'
+                            DEFAULT: '#c9a227',
+                            light: '#e8d48a'
                         },
                         accent: {
-                            DEFAULT: '#d4a5a5',
-                            light: '#f0d4d4'
+                            DEFAULT: '#8faabe',
+                            light: '#c7d9e5'
                         }
                     },
                     fontFamily: {
                         display: ['Playfair Display', 'Georgia', 'serif'],
                         elegant: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        script: ['Great Vibes', 'cursive'],
                         body: ['Poppins', 'Segoe UI', 'sans-serif']
                     }
                 }
@@ -168,75 +169,47 @@
     <main id="mainContent" class="hidden">
 
         <!-- ========================================
-         PROFIL MEMPELAI
+         PROFIL MEMPELAI - New Design
          ======================================== -->
         <section id="couple" class="couple-section">
-            <!-- Decorative Corner Ornaments -->
-            <div class="section-ornament ornament-top-left animated">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M10,90 Q10,10 90,10 Q60,10 50,30 Q40,50 50,70 Q60,50 70,50 Q50,50 40,60 Q30,70 20,60 Q10,50 10,90"
-                        fill="currentColor" />
-                    <circle cx="85" cy="15" r="8" />
-                    <circle cx="70" cy="25" r="5" />
-                    <circle cx="25" cy="75" r="6" />
-                </svg>
-            </div>
-            <div class="section-ornament ornament-top-right animated">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M10,90 Q10,10 90,10 Q60,10 50,30 Q40,50 50,70 Q60,50 70,50 Q50,50 40,60 Q30,70 20,60 Q10,50 10,90"
-                        fill="currentColor" />
-                    <circle cx="85" cy="15" r="8" />
-                    <circle cx="70" cy="25" r="5" />
-                    <circle cx="25" cy="75" r="6" />
-                </svg>
-            </div>
             <div class="container">
-                <div class="section-header" data-aos="fade-up">
-                    <p class="section-label">Bismillahirrahmanirrahim</p>
-                    <h2 class="section-title">Mempelai</h2>
-                    <div class="section-divider"></div>
+                <!-- Hero Couple Section -->
+                <div class="couple-hero" data-aos="fade-up">
+                    <div class="couple-hero-image-wrapper">
+                        <img src="/assets/images/main.webp" alt="Kukuh & Fitriani" class="couple-hero-image">
+                        <div class="couple-hero-overlay"></div>
+                    </div>
+                    <h2 class="couple-hero-title font-script">Bride & Groom</h2>
                 </div>
 
-                <div class="couple-grid">
-                    <!-- Groom -->
-                    <div class="couple-card" data-aos="fade-right">
-                        <div class="couple-photo-wrapper">
-                            <div class="couple-photo-frame"></div>
-                            <img src="" alt="Mempelai Pria" class="couple-photo groom-photo">
+                <!-- Individual Couple Cards -->
+                <div class="couple-cards-container" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Bride Card -->
+                    <div class="couple-card-new">
+                        <div class="couple-card-image-wrapper">
+                            <img src="" alt="Mempelai Wanita" class="couple-card-image bride-photo">
                         </div>
-                        <h3 class="couple-name groom-name">Muhammad Ahmad Fauzi</h3>
-                        <p class="couple-parents">
-                            <span class="groom-child-order">Putra pertama dari</span><br>
-                            <span class="groom-father">Bapak H. Sulaiman</span> & <span class="groom-mother">Ibu Hj.
-                                Fatimah</span>
+                        <h3 class="couple-card-name font-script bride-name">Fitriani Desi Pratiwi</h3>
+                        <p class="couple-card-parents">
+                            <span class="bride-child-order">Putri kedua dari</span>
+                            <span class="bride-father">Bapak Sahid</span> &
+                            <span class="bride-mother">Ibu Sulyati</span>
                         </p>
-                        <p class="couple-bio groom-bio"></p>
-                        <div id="groomSocial" class="couple-social"></div>
-                    </div>
-
-                    <!-- Divider -->
-                    <div class="couple-divider" data-aos="zoom-in">
-                        <div class="couple-divider-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                    </div>
-
-                    <!-- Bride -->
-                    <div class="couple-card" data-aos="fade-left">
-                        <div class="couple-photo-wrapper">
-                            <div class="couple-photo-frame right"></div>
-                            <img src="" alt="Mempelai Wanita" class="couple-photo bride-photo">
-                        </div>
-                        <h3 class="couple-name bride-name">Aisyah Putri Ramadhani</h3>
-                        <p class="couple-parents">
-                            <span class="bride-child-order">Putri kedua dari</span><br>
-                            <span class="bride-father">Bapak H. Abdullah</span> & <span class="bride-mother">Ibu Hj.
-                                Khadijah</span>
-                        </p>
-                        <p class="couple-bio bride-bio"></p>
                         <div id="brideSocial" class="couple-social"></div>
+                    </div>
+
+                    <!-- Groom Card -->
+                    <div class="couple-card-new">
+                        <div class="couple-card-image-wrapper">
+                            <img src="" alt="Mempelai Pria" class="couple-card-image groom-photo">
+                        </div>
+                        <h3 class="couple-card-name font-script groom-name">Kukuh Widiyanto</h3>
+                        <p class="couple-card-parents">
+                            <span class="groom-child-order">Putra pertama dari</span>
+                            <span class="groom-father">Bapak Suratman</span> &
+                            <span class="groom-mother">Ibu Sri Muryani</span>
+                        </p>
+                        <div id="groomSocial" class="couple-social"></div>
                     </div>
                 </div>
 
@@ -244,6 +217,26 @@
                 <div class="quote-box glass-card" data-aos="fade-up">
                     <p class="quote-text"></p>
                     <p class="quote-source"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         COUNTDOWN SECTION (Before Prayers)
+         ======================================== -->
+        <section id="mainCountdown" class="main-countdown-section py-16">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Save The Date</p>
+                    <h2 class="section-title">Menuju Hari Bahagia</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="countdown-aesthetic" data-aos="zoom-in">
+                    <div id="mainCountdownTimer" class="countdown-boxes">
+                        <!-- Will be populated by JS -->
+                    </div>
+                    <p class="countdown-date-display wedding-date"></p>
                 </div>
             </div>
         </section>

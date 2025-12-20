@@ -82,9 +82,21 @@ const CONFIG = {
         },
         {
             id: 'tasyakur1',
-            name: 'Tasyakuran',
-            date: '2026-01-17',
-            endDate: '2026-01-18',
+            name: 'Tasyakuran (Untuk Tamu Kantor)',
+            date: '2026-01-19',
+            startTime: '12:00',
+            endTime: '15:00',
+            venue: 'Rumah Mempelai Pria',
+            address: 'RT. 02 RW. 05 Kel. Penambongan Kec. Purbalingga Kab. Purbalingga',
+            mapsUrl: 'https://maps.app.goo.gl/ohxNSJ1d75EXFrNH7',
+            mapsEmbed: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d247.28707365419965!2d109.3693694!3d-7.3993971!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6559d058a8f13b%3A0x19695c3a79517a49!2sJ929%2B7PX%2C%20Penambongan%2C%20Kec.%20Purbalingga%2C%20Kabupaten%20Purbalingga%2C%20Jawa%20Tengah%2053314!5e0!3m2!1sid!2sid!4v1765678527796!5m2!1sid!2sid',
+            dresscode: 'Formal - Earth Tone',
+            icon: 'fa-champagne-glasses'
+        },
+        {
+            id: 'tasyakur3',
+            name: 'Tasyakuran (Untuk Teman dan Sahabat)',
+            date: '2026-01-18',
             startTime: '12:00',
             endTime: '15:00',
             venue: 'Rumah Mempelai Pria',
@@ -124,49 +136,28 @@ const CONFIG = {
     ],
 
 
-    // === DOA & HARAPAN ===
+    // === DOA & HARAPAN (Ringkas) ===
     prayers: [
         {
             category: 'Doa Pernikahan',
-            title: 'Doa Kelancaran Pernikahan',
-            content: 'وَأَلَّفَ بَيْنَ قُلُوبِهِمْ لَوْ أَنْفَقْتَ مَا فِي الْأَرْضِ جَمِيعًا مَا أَلَّفْتَ بَيْنَ قُلُوبِهِمْ وَلَٰكِنَّ اللَّهَ أَلَّفَ بَيْنَهُمْ',
-            translation: 'Dan Dia mempersatukan hati mereka. Sekiranya kamu menghabiskan semua yang (ada) di bumi, niscaya kamu tidak dapat mempersatukan hati mereka, akan tetapi Allah telah mempersatukan mereka. (QS. Al-Anfal: 63)',
+            title: 'Doa Keluarga Sakinah',
+            content: 'رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا',
+            translation: 'Ya Tuhan kami, anugerahkanlah kepada kami pasangan dan keturunan yang menjadi penyejuk hati kami. (QS. Al-Furqan: 74)',
             icon: 'fa-hands-praying'
         },
         {
-            category: 'Doa Pernikahan',
-            title: 'Doa Keluarga Sakinah',
-            content: 'رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا',
-            translation: 'Wahai Tuhan kami, anugerahkanlah kepada kami pasangan dan keturunan yang menjadi penyejuk hati (kami), dan jadikanlah kami pemimpin bagi orang-orang yang bertakwa. (QS. Al-Furqan: 74)',
+            category: 'Harapan',
+            title: 'Rumah Tangga Sakinah',
+            content: 'Semoga Allah SWT melimpahkan rahmat-Nya sehingga kami dapat membangun rumah tangga yang sakinah, mawaddah, warahmah.',
+            translation: '',
             icon: 'fa-heart'
         },
         {
-            category: 'Harapan',
-            title: 'Membangun Rumah Tangga',
-            content: 'Semoga Allah SWT senantiasa melimpahkan rahmat dan berkah-Nya atas pernikahan kami, sehingga kami dapat membangun rumah tangga yang sakinah, mawaddah, warahmah.',
-            translation: '',
-            icon: 'fa-home'
-        },
-        {
-            category: 'Harapan',
-            title: 'Keberkahan dan Kesejahteraan',
-            content: 'Semoga pernikahan ini membawa keberkahan dalam kehidupan dunia dan akhirat, serta menjadi awal dari perjalanan penuh cinta, kebahagiaan, dan kesejahteraan bersama.',
-            translation: '',
-            icon: 'fa-dove'
-        },
-        {
-            category: 'Ucapan Terima Kasih',
-            title: 'Untuk Orang Tua',
-            content: 'Terima kasih kami ucapkan kepada kedua orang tua yang telah mendidik kami dengan penuh kasih sayang, serta merestui pernikahan kami. Doa kalian adalah bekal terberharga dalam perjalanan kami.',
+            category: 'Terima Kasih',
+            title: 'Doa Restu',
+            content: 'Terima kasih atas doa dan restu dari orang tua, keluarga, dan sahabat. Kehadiran kalian adalah anugerah yang tak ternilai.',
             translation: '',
             icon: 'fa-hands-helping'
-        },
-        {
-            category: 'Ucapan Terima Kasih',
-            title: 'Untuk Para Sahabat',
-            content: 'Terima kasih untuk sahabat-sahabat yang telah mendukung perjalanan cinta kami, dari awal pertemuan hingga saat ini. Kehadiran kalian adalah anugerah yang tak ternilai.',
-            translation: '',
-            icon: 'fa-users'
         }
     ],
 
@@ -302,7 +293,7 @@ const CONFIG = {
 
     // === MUSIK ===
     music: {
-        src: '/assets/music/music.mp3', // Ganti dengan URL musik Anda
+        src: '/assets/music/music2.mp3', // Ganti dengan URL musik Anda
         autoplay: true
     },
 

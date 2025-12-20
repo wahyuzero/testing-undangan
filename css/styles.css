@@ -7,38 +7,38 @@
    CSS VARIABLES / DESIGN TOKENS
    ======================================== */
 :root {
-    /* Primary Colors - Sage Green & Rose Gold */
-    --color-primary: #7c9885;
-    --color-primary-light: #a8c4b0;
-    --color-primary-dark: #5a7661;
-    --color-secondary: #c9a87c;
-    --color-secondary-light: #e0c9a8;
-    --color-accent: #d4a5a5;
-    --color-accent-light: #f0d4d4;
+    /* Primary Colors - Navy Blue & Gold Tones */
+    --color-primary: #1e3a5f;
+    --color-primary-light: #2d5a87;
+    --color-primary-dark: #0f2744;
+    --color-secondary: #c9a227;
+    --color-secondary-light: #e8d48a;
+    --color-accent: #8faabe;
+    --color-accent-light: #c7d9e5;
 
     /* Background Colors */
-    --bg-primary: #fdfcfb;
-    --bg-secondary: #f8f5f2;
-    --bg-glass: rgba(255, 255, 255, 0.85);
-    --bg-overlay: rgba(0, 0, 0, 0.4);
+    --bg-primary: #f8fafc;
+    --bg-secondary: #eef3f7;
+    --bg-glass: rgba(248, 250, 252, 0.92);
+    --bg-overlay: rgba(15, 39, 68, 0.6);
 
     /* Text Colors */
-    --text-primary: #2d2d2d;
-    --text-secondary: #5a5a5a;
-    --text-muted: #8a8a8a;
+    --text-primary: #1a2a3a;
+    --text-secondary: #3d5a73;
+    --text-muted: #6b8299;
     --text-light: #ffffff;
 
     /* Borders & Shadows */
-    --border-color: rgba(124, 152, 133, 0.2);
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.15);
-    --shadow-glow: 0 0 30px rgba(124, 152, 133, 0.3);
+    --border-color: rgba(30, 58, 95, 0.2);
+    --shadow-sm: 0 2px 8px rgba(15, 39, 68, 0.08);
+    --shadow-md: 0 4px 20px rgba(15, 39, 68, 0.12);
+    --shadow-lg: 0 8px 40px rgba(15, 39, 68, 0.18);
+    --shadow-glow: 0 0 30px rgba(30, 58, 95, 0.25);
 
     /* Typography */
-    --font-display: 'Playfair Display', 'Georgia', serif;
-    --font-elegant: 'Cormorant Garamond', 'Georgia', serif;
-    --font-body: 'Poppins', 'Segoe UI', sans-serif;
+    --font-display: "Playfair Display", "Georgia", serif;
+    --font-elegant: "Cormorant Garamond", "Georgia", serif;
+    --font-body: "Poppins", "Segoe UI", sans-serif;
 
     /* Spacing */
     --section-padding: 5rem 1.5rem;
@@ -52,14 +52,14 @@
 
 /* Dark Mode Variables */
 .dark {
-    --bg-primary: #1a1a2e;
-    --bg-secondary: #16213e;
-    --bg-glass: rgba(26, 26, 46, 0.9);
-    --text-primary: #f0f0f0;
-    --text-secondary: #c0c0c0;
-    --text-muted: #888888;
-    --border-color: rgba(168, 196, 176, 0.2);
-    --shadow-glow: 0 0 30px rgba(168, 196, 176, 0.2);
+    --bg-primary: #0a1929;
+    --bg-secondary: #0f2744;
+    --bg-glass: rgba(10, 25, 41, 0.95);
+    --text-primary: #e8f0f8;
+    --text-secondary: #a8c4de;
+    --text-muted: #6b8eab;
+    --border-color: rgba(45, 90, 135, 0.3);
+    --shadow-glow: 0 0 30px rgba(45, 90, 135, 0.3);
 }
 
 /* ========================================
@@ -79,12 +79,21 @@ html {
 
 body {
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.6;
     color: var(--text-primary);
     background: var(--bg-primary);
     overflow-x: hidden;
-    transition: background var(--transition-normal), color var(--transition-normal);
+    transition:
+        background var(--transition-normal),
+        color var(--transition-normal);
+}
+
+/* Mobile-friendly base font */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
 }
 
 img {
@@ -158,7 +167,11 @@ h6 {
 
 /* Gradient Text */
 .gradient-text {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-secondary)
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -171,7 +184,11 @@ h6 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-primary-dark)
+    );
     color: var(--text-light);
     font-weight: 500;
     padding: 0.875rem 2rem;
@@ -184,14 +201,20 @@ h6 {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-md), var(--shadow-glow);
+    box-shadow:
+        var(--shadow-md),
+        var(--shadow-glow);
 }
 
 .btn-secondary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light));
+    background: linear-gradient(
+        135deg,
+        var(--color-secondary),
+        var(--color-secondary-light)
+    );
     color: var(--text-primary);
     font-weight: 500;
     padding: 0.875rem 2rem;
@@ -249,9 +272,11 @@ h6 {
     height: 100%;
     /* Parallax effect will be handled by JS or CSS 3D transform if needed,
        but for now we keep it simple or use fixed attachment */
-    background: linear-gradient(135deg,
-            rgba(124, 152, 133, 0.9),
-            rgba(201, 168, 124, 0.8)),
+    background:
+        linear-gradient(
+            135deg,
+            rgba(30, 58, 95, 0.88),
+            rgba(45, 90, 135, 0.8)),
         url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&h=1080&fit=crop') center/cover no-repeat fixed;
 }
 
@@ -261,7 +286,11 @@ h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    background: radial-gradient(
+        ellipse at center,
+        transparent 0%,
+        rgba(0, 0, 0, 0.3) 100%
+    );
     z-index: 2;
 }
 
@@ -301,7 +330,12 @@ h6 {
 .cover-ornament {
     width: 120px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--text-light), transparent);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--text-light),
+        transparent
+    );
     margin: 1.5rem auto;
 }
 
@@ -441,7 +475,6 @@ h6 {
 }
 
 @keyframes imminentPulse {
-
     0%,
     100% {
         transform: scale(1);
@@ -454,7 +487,11 @@ h6 {
 
 /* Countdown Celebration (Event Day) */
 .countdown-celebration {
-    background: linear-gradient(135deg, rgba(236, 201, 75, 0.3), rgba(245, 158, 11, 0.3));
+    background: linear-gradient(
+        135deg,
+        rgba(236, 201, 75, 0.3),
+        rgba(245, 158, 11, 0.3)
+    );
     border-radius: 1rem;
     padding: 1.5rem 2rem;
     animation: celebrationGlow 2s ease-in-out infinite;
@@ -485,7 +522,6 @@ h6 {
 }
 
 @keyframes celebrationGlow {
-
     0%,
     100% {
         box-shadow: 0 0 20px rgba(236, 201, 75, 0.3);
@@ -497,7 +533,6 @@ h6 {
 }
 
 @keyframes bounce {
-
     0%,
     100% {
         transform: translateY(0);
@@ -515,6 +550,122 @@ h6 {
 
     100% {
         background-position: 200% center;
+    }
+}
+
+/* ========================================
+   MAIN COUNTDOWN SECTION (In content)
+   ======================================== */
+.main-countdown-section {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.main-countdown-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(30, 58, 95, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(45, 90, 135, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.countdown-aesthetic {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.countdown-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.countdown-box {
+    background: linear-gradient(145deg, var(--bg-glass), rgba(255, 252, 248, 0.7));
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 1.25rem 1rem;
+    min-width: 80px;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+}
+
+.countdown-box:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.countdown-box-number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.countdown-box-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+.countdown-date-display {
+    font-family: var(--font-elegant);
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Dark mode adjustments */
+.dark .countdown-box {
+    background: linear-gradient(145deg, var(--bg-glass), rgba(31, 26, 21, 0.7));
+}
+
+.dark .countdown-box-number {
+    background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .countdown-boxes {
+        gap: 0.5rem;
+    }
+    
+    .countdown-box {
+        min-width: 60px;
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .countdown-box-number {
+        font-size: 1.5rem;
+    }
+    
+    .countdown-box-label {
+        font-size: 0.6rem;
+        margin-top: 0.3rem;
+    }
+    
+    .countdown-date-display {
+        font-size: 0.9rem;
     }
 }
 
@@ -576,18 +727,18 @@ section {
 }
 
 .section-label {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: var(--color-secondary);
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     margin-bottom: 0.5rem;
 }
 
 .section-title {
     font-family: var(--font-display);
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--color-primary);
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 .dark .section-title {
@@ -595,11 +746,31 @@ section {
 }
 
 .section-divider {
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        var(--color-primary),
+        var(--color-secondary)
+    );
     margin: 0 auto;
     border-radius: 2px;
+}
+
+/* Mobile responsive section header */
+@media (max-width: 640px) {
+    .section-label {
+        font-size: 0.65rem;
+        letter-spacing: 1.5px;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .section-header {
+        margin-bottom: 2rem;
+    }
 }
 
 /* ========================================
@@ -709,7 +880,11 @@ section {
 .couple-divider-line {
     width: 2px;
     height: 60px;
-    background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(
+        to bottom,
+        var(--color-primary),
+        var(--color-secondary)
+    );
 }
 
 .couple-divider-icon {
@@ -718,7 +893,11 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-secondary)
+    );
     border-radius: 50%;
     color: var(--text-light);
     font-size: 1.5rem;
@@ -727,23 +906,225 @@ section {
 /* Quote Box */
 .quote-box {
     max-width: 800px;
-    margin: 3rem auto 0;
+    margin: 2rem auto 0;
     text-align: center;
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
 .quote-text {
     font-family: var(--font-elegant);
     font-style: italic;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
-    line-height: 1.8;
-    margin-bottom: 1rem;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
 }
 
 .quote-source {
     color: var(--color-primary);
     font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Mobile quote box */
+@media (max-width: 640px) {
+    .quote-box {
+        padding: 1rem;
+        margin: 1.5rem auto 0;
+    }
+    
+    .quote-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .quote-source {
+        font-size: 0.8rem;
+    }
+}
+
+/* ========================================
+   NEW COUPLE SECTION DESIGN
+   ======================================== */
+.font-script {
+    font-family: 'Great Vibes', cursive;
+}
+
+/* Hero Couple Section */
+.couple-hero {
+    position: relative;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.couple-hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.couple-hero-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+}
+
+.couple-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(30, 58, 95, 0.35) 100%
+    );
+    pointer-events: none;
+}
+
+.couple-hero-title {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3.5rem;
+    color: #fff;
+    text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.4);
+    white-space: nowrap;
+}
+
+/* Individual Couple Cards Container - Overlapping Style */
+.couple-cards-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    position: relative;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+/* Individual Couple Card - Base */
+.couple-card-new {
+    position: relative;
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(
+        135deg,
+        rgba(143, 170, 190, 0.35) 0%,
+        rgba(199, 217, 229, 0.25) 100%
+    );
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+}
+
+/* Bride Card (Left) - Smaller */
+.couple-card-new:first-child {
+    width: 48%;
+    max-width: 280px;
+    z-index: 1;
+    margin-right: -30px; /* Creates overlap */
+}
+
+/* Groom Card (Right) - Larger, overlapping */
+.couple-card-new:last-child {
+    width: 55%;
+    max-width: 320px;
+    z-index: 2;
+    margin-top: -20px; /* Positioned higher */
+    margin-left: -30px; /* Creates overlap on bride's right side */
+    box-shadow: var(--shadow-lg);
+}
+
+.couple-card-image-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 0.75rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.couple-card-image {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+}
+
+.couple-card-name {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-bottom: 0.3rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Groom name slightly larger */
+.couple-card-new:last-child .couple-card-name {
+    font-size: 1.4rem;
+}
+
+.dark .couple-card-name {
+    color: var(--color-primary-light);
+}
+
+.couple-card-parents {
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.couple-card-parents span {
+    display: block;
+}
+
+.couple-card-parents .bride-child-order,
+.couple-card-parents .groom-child-order {
+    font-style: italic;
+    margin-bottom: 0.2rem;
+}
+
+/* Responsive for mobile - Keep overlapping but adjust sizes */
+@media (max-width: 640px) {
+    .couple-hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .couple-cards-container {
+        padding: 0 0.5rem;
+    }
+    
+    /* Bride Card (Left) */
+    .couple-card-new:first-child {
+        width: 50%;
+        max-width: 200px;
+        margin-right: -20px;
+    }
+    
+    /* Groom Card (Right) */
+    .couple-card-new:last-child {
+        width: 58%;
+        max-width: 230px;
+        margin-top: -15px;
+        margin-left: -20px;
+    }
+    
+    .couple-card-name {
+        font-size: 1rem;
+    }
+    
+    .couple-card-new:last-child .couple-card-name {
+        font-size: 1.15rem;
+    }
+    
+    .couple-card-parents {
+        font-size: 0.6rem;
+    }
 }
 
 /* ========================================
@@ -883,7 +1264,11 @@ section {
    RSVP SECTION
    ======================================== */
 .rsvp-section {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-primary-dark)
+    );
     color: var(--text-light);
 }
 
@@ -1283,7 +1668,6 @@ footer a {
 }
 
 @keyframes pulse {
-
     0%,
     100% {
         transform: scale(1);
@@ -1295,7 +1679,6 @@ footer a {
 }
 
 @keyframes float {
-
     0%,
     100% {
         transform: translateY(0);
@@ -1356,7 +1739,6 @@ footer a {
 }
 
 @keyframes sway {
-
     0%,
     100% {
         transform: translateX(0) rotate(0deg);
@@ -1383,15 +1765,16 @@ footer a {
 }
 
 @keyframes textGlow {
-
     0%,
     100% {
-        text-shadow: 2px 4px 20px rgba(0, 0, 0, 0.3),
+        text-shadow:
+            2px 4px 20px rgba(0, 0, 0, 0.3),
             0 0 20px rgba(255, 255, 255, 0.1);
     }
 
     50% {
-        text-shadow: 2px 4px 20px rgba(0, 0, 0, 0.3),
+        text-shadow:
+            2px 4px 20px rgba(0, 0, 0, 0.3),
             0 0 40px rgba(255, 255, 255, 0.3),
             0 0 60px rgba(255, 255, 255, 0.2);
     }
@@ -1443,7 +1826,6 @@ footer a {
 }
 
 @keyframes heartPulse {
-
     0%,
     100% {
         transform: scale(1);
@@ -1458,15 +1840,16 @@ footer a {
 
 /* Button Glow Animation */
 @keyframes glowPulse {
-
     0%,
     100% {
-        box-shadow: 0 4px 15px rgba(124, 152, 133, 0.4),
+        box-shadow:
+            0 4px 15px rgba(124, 152, 133, 0.4),
             0 0 30px rgba(255, 255, 255, 0.1);
     }
 
     50% {
-        box-shadow: 0 4px 25px rgba(124, 152, 133, 0.6),
+        box-shadow:
+            0 4px 25px rgba(124, 152, 133, 0.6),
             0 0 50px rgba(255, 255, 255, 0.2),
             0 0 70px rgba(124, 152, 133, 0.3);
     }
@@ -1499,7 +1882,6 @@ footer a {
 
 /* Countdown Bounce */
 @keyframes countdownBounce {
-
     0%,
     100% {
         transform: scale(1);
@@ -1645,7 +2027,6 @@ footer a {
 
 /* Sparkle Effect */
 @keyframes sparkle {
-
     0%,
     100% {
         opacity: 0;
@@ -1792,7 +2173,12 @@ footer a {
 .cover-ornament {
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--text-light), transparent);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--text-light),
+        transparent
+    );
     margin: 1.5rem auto;
     animation: expandLine 1.2s ease-out 0.5s forwards;
 }
@@ -1833,13 +2219,15 @@ footer a {
 
 /* Shimmer overlay on names */
 .cover-names::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg,
-            transparent 0%,
-            rgba(255, 255, 255, 0.4) 50%,
-            transparent 100%);
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        transparent 100%
+    );
     background-size: 200% 100%;
     animation: shimmer 3s infinite linear;
     pointer-events: none;
@@ -1909,15 +2297,21 @@ footer a {
     z-index: 20;
     pointer-events: auto;
     opacity: 0;
-    animation: textReveal 0.8s ease-out 1.8s forwards, glowPulse 2s infinite ease-in-out 2s;
+    animation:
+        textReveal 0.8s ease-out 1.8s forwards,
+        glowPulse 2s infinite ease-in-out 2s;
 }
 
 #openInvitation::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: -4px;
     border-radius: 50px;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-secondary)
+    );
     opacity: 0;
     z-index: -1;
     animation: ripple 2s infinite ease-out;
@@ -1954,10 +2348,13 @@ footer a {
     left: -10%;
     width: 120%;
     height: 120%;
-    background: linear-gradient(135deg,
+    background:
+        linear-gradient(
+            135deg,
             rgba(124, 152, 133, 0.9),
-            rgba(201, 168, 124, 0.8)),
-        url('/assets/images/main.webp') center/cover;
+            rgba(201, 168, 124, 0.8)
+        ),
+        url("/assets/images/main.webp") center/cover;
     transition: transform 0.1s ease-out;
 }
 
@@ -1990,7 +2387,11 @@ footer a {
 .couple-divider-line {
     width: 2px;
     height: 0;
-    background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(
+        to bottom,
+        var(--color-primary),
+        var(--color-secondary)
+    );
     animation: drawLine 0.8s ease-out forwards;
 }
 
@@ -2000,7 +2401,11 @@ footer a {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-secondary)
+    );
     border-radius: 50%;
     color: var(--text-light);
     font-size: 1.5rem;
@@ -2060,13 +2465,18 @@ footer a {
 }
 
 .story-item::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 50%;
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(to bottom, transparent, var(--color-primary), transparent);
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--color-primary),
+        transparent
+    );
     transform: translateX(-50%);
     opacity: 0.3;
 }
@@ -2176,13 +2586,21 @@ footer a {
 
 /* Gift Address Card */
 .gift-address-card {
-    background: linear-gradient(135deg, var(--color-secondary-light), var(--color-accent-light));
+    background: linear-gradient(
+        135deg,
+        var(--color-secondary-light),
+        var(--color-accent-light)
+    );
     border: 2px dashed var(--color-secondary);
     animation: cardFlip 0.7s ease-out 0.4s backwards;
 }
 
 .dark .gift-address-card {
-    background: linear-gradient(135deg, rgba(201, 168, 124, 0.2), rgba(212, 165, 165, 0.2));
+    background: linear-gradient(
+        135deg,
+        rgba(201, 168, 124, 0.2),
+        rgba(212, 165, 165, 0.2)
+    );
 }
 
 /* Protocol Card Animation */
@@ -2216,14 +2634,19 @@ footer a {
 }
 
 .closing-section::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 200px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-primary),
+        transparent
+    );
     animation: expandLine 1s ease-out;
 }
 
@@ -2236,13 +2659,18 @@ footer a {
 }
 
 .closing-names::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -10px;
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--color-secondary), transparent);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-secondary),
+        transparent
+    );
     animation: expandLine 1s ease-out 0.5s backwards;
     transform-origin: center;
 }
@@ -2274,7 +2702,7 @@ footer a {
 }
 
 .rsvp-submit::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -2453,7 +2881,7 @@ footer a {
         gap: 1rem;
     }
 
-    .story-item>* {
+    .story-item > * {
         flex: none;
         width: 100%;
     }
@@ -2591,7 +3019,6 @@ footer a {
    PRINT STYLES
    ======================================== */
 @media print {
-
     #cover,
     .floating-controls,
     #lightbox,
@@ -2724,7 +3151,6 @@ footer a {
     animation-delay: 0.5s;
 }
 
-
 /* -------- PRAYERS SECTION: Float Blur -------- */
 @keyframes floatBlur {
     0% {
@@ -2786,8 +3212,6 @@ footer a {
 .prayers-section .section-ornament svg {
     fill: var(--color-primary);
 }
-
-
 
 /* -------- EVENTS SECTION: Curtain Reveal -------- */
 @keyframes curtainReveal {
@@ -3265,7 +3689,6 @@ footer a {
 }
 
 @keyframes ornamentFloat {
-
     0%,
     100% {
         transform: translateY(0) rotate(0deg);
@@ -3282,7 +3705,6 @@ footer a {
 }
 
 @keyframes ornamentFloatMirror {
-
     0%,
     100% {
         transform: scaleX(-1) translateY(0) rotate(0deg);
@@ -3299,7 +3721,6 @@ footer a {
 }
 
 @keyframes ornamentFloatBottom {
-
     0%,
     100% {
         transform: scaleY(-1) translateY(0) rotate(0deg);
@@ -3316,7 +3737,6 @@ footer a {
 }
 
 @keyframes ornamentFloatCorner {
-
     0%,
     100% {
         transform: scale(-1) translateY(0) rotate(0deg);
@@ -3663,7 +4083,6 @@ footer a {
 
 /* Reduce backdrop-filter intensity on mobile for GPU performance */
 @media (max-width: 768px) {
-
     .glass-card,
     .glass {
         backdrop-filter: blur(8px);
@@ -3693,7 +4112,6 @@ footer a {
    PREFERS REDUCED MOTION - ACCESSIBILITY
    ======================================== */
 @media (prefers-reduced-motion: reduce) {
-
     *,
     *::before,
     *::after {
