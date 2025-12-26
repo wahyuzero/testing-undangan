@@ -47,7 +47,7 @@ Atas perhatian serta kehadiran Bapak/Ibu/Saudara/i, kami ucapkan terima kasih ya
 Wassalamu'alaikum warahmatullahi wabarakatuh.
 
 Hormat kami,
-Kukuh & Widiya`
+Kukuh & Fitriani`
 };
 
 // ========================================
