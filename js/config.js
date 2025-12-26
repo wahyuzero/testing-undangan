@@ -22,7 +22,7 @@ const CONFIG = {
 
     // === DATA MEMPELAI PRIA ===
     groom: {
-        fullName: 'Kukuh Widiyanto',
+        fullName: 'Kukuh Widiyanto, S.Md.Kom.',
         nickname: 'Kukuh',
         photo: '/assets/images/groom.png',
         fatherName: 'Bapak Suratman',
@@ -37,7 +37,7 @@ const CONFIG = {
 
     // === DATA MEMPELAI WANITA ===
     bride: {
-        fullName: 'Fitriani Desi Pratiwi',
+        fullName: 'Fitriani Desi Pratiwi, S.E.',
         nickname: 'Fitriani',
         photo: '/assets/images/bride.png',
         fatherName: 'Bapak Sahid',
@@ -68,7 +68,7 @@ const CONFIG = {
     events: [
         {
             id: 'tasyakur2',
-            name: 'Tasyakuran',
+            name: 'Tasyakuran di Rumah Mempelai Wanita',
             date: '2026-01-19',
             endDate: '2026-01-20',
             startTime: '12:00',
@@ -82,7 +82,7 @@ const CONFIG = {
         },
         {
             id: 'tasyakur1',
-            name: 'Tasyakuran (Untuk Tamu Kantor)',
+            name: 'Tasyakuran di Rumah Mempelai Pria Untuk Tamu Kantor',
             date: '2026-01-19',
             startTime: '12:00',
             endTime: '15:00',
@@ -95,7 +95,7 @@ const CONFIG = {
         },
         {
             id: 'tasyakur3',
-            name: 'Tasyakuran (Untuk Teman dan Sahabat)',
+            name: 'Tasyakuran di Rumah Mempelai Pria Untuk Teman dan Sahabat',
             date: '2026-01-18',
             startTime: '12:00',
             endTime: '15:00',
