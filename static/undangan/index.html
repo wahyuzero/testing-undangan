@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Undangan Kukuh & Fitriani - 21 Januari 2026">
+    <meta name="theme-color" content="#1e3a5f">
+
+    <!-- Open Graph / SEO -->
+    <meta property="og:title" content="The Wedding of Kukuh & Fitriani">
+    <meta property="og:description"
+        content="Rabu, 21 Januari 2026. Merupakan suatu kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.">
+    <meta property="og:image" content="https://kukuh-fitriani.site/assets/images/foto10.jpg">
+    <meta property="og:url" content="https://frugaldev.biz.id">
+    <meta property="og:type" content="website">
+
+    <title>Kukuh & Fitriani</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#1e3a5f',
+                            light: '#2d5a87',
+                            dark: '#0f2744'
+                        },
+                        secondary: {
+                            DEFAULT: '#c9a227',
+                            light: '#e8d48a'
+                        },
+                        accent: {
+                            DEFAULT: '#8faabe',
+                            light: '#c7d9e5'
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'Georgia', 'serif'],
+                        elegant: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        script: ['Great Vibes', 'cursive'],
+                        body: ['Poppins', 'Segoe UI', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- ========================================
+       PRELOADER
+       ======================================== -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="heart-loader">
+                <i class="fas fa-heart"></i>
+            </div>
+            <p class="loading-text">K & F</p>
+        </div>
+    </div>
+    <!-- ========================================
+       COVER / OPENING SECTION
+       ======================================== -->
+    <section id="cover">
+        <div class="cover-bg"></div>
+        <div class="cover-overlay"></div>
+
+        <!-- Floating Particles -->
+        <!-- Premium Particles Canvas -->
+        <canvas id="flowerCanvas" class="flower-canvas"></canvas>
+
+
+
+        <!-- Animated Decorative Elements -->
+        <div class="cover-decor cover-decor-top-left">
+            <i class="fas fa-leaf"></i>
+        </div>
+        <div class="cover-decor cover-decor-top-right">
+            <i class="fas fa-leaf"></i>
+        </div>
+        <div class="cover-decor cover-decor-bottom-left">
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="cover-decor cover-decor-bottom-right">
+            <i class="fas fa-heart"></i>
+        </div>
+
+        <div class="cover-content">
+            <p class="cover-title">The Wedding of</p>
+
+            <div class="cover-ornament"></div>
+
+            <h1 class="cover-names">
+                <span class="groom-nickname">The Groom</span>
+                <span class="ampersand">&</span>
+                <span class="bride-nickname">The Bride</span>
+            </h1>
+
+            <div class="cover-ornament"></div>
+
+            <p class="cover-date">
+                <span class="wedding-date">Save The Date</span>
+                <br>
+                <!-- <span class="wedding-city"></span> -->
+            </p>
+
+            <!-- Guest Name from URL -->
+            <div class="cover-guest">
+                <p class="cover-guest-label">Kepada Yth.</p>
+                <p class="cover-guest-name guest-name">Tamu Undangan</p>
+            </div>
+
+            <!-- Countdown -->
+            <div id="countdown"></div>
+
+            <!-- Open Invitation Button -->
+            <button id="openInvitation" class="btn-primary mt-8" onclick="openInvitationHandler()">
+                <i class="fas fa-envelope-open-text mr-2"></i>
+                Buka Undangan
+            </button>
+
+            <script>
+                // Global function for opening invitation (fallback)
+                function openInvitationHandler() {
+                    console.log('openInvitationHandler called');
+                    const cover = document.getElementById('cover');
+                    const mainContent = document.getElementById('mainContent');
+                    if (cover && mainContent) {
+                        cover.style.display = 'none';
+                        mainContent.classList.remove('hidden');
+                        mainContent.style.display = 'block';
+                        console.log('Invitation opened successfully');
+                    } else {
+                        console.error('Cover or mainContent not found');
+                    }
+                }
+            </script>
+        </div>
+    </section>
+
+    <!-- ========================================
+       MAIN CONTENT (Hidden until opened)
+       ======================================== -->
+    <main id="mainContent" class="hidden">
+
+        <!-- ========================================
+         PROFIL MEMPELAI - New Design
+         ======================================== -->
+        <section id="couple" class="couple-section">
+            <div class="container">
+                <!-- Hero Couple Section -->
+                <div class="couple-hero" data-aos="fade-up">
+                    <div class="couple-hero-image-wrapper">
+                        <img src="/assets/images/main.webp" alt="Kukuh & Fitriani" class="couple-hero-image">
+                        <div class="couple-hero-overlay"></div>
+                    </div>
+                    <h2 class="couple-hero-title font-script">Bride & Groom</h2>
+                </div>
+
+                <!-- Individual Couple Cards -->
+                <div class="couple-cards-container" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Bride Card -->
+                    <div class="couple-card-new">
+                        <div class="couple-card-image-wrapper">
+                            <img src="" alt="Mempelai Wanita" class="couple-card-image bride-photo">
+                        </div>
+                        <h3 class="couple-card-name font-script bride-name">Fitriani Desi Pratiwi</h3>
+                        <p class="couple-card-parents">
+                            <span class="bride-child-order">Putri kedua dari</span>
+                            <span class="bride-father">Bapak Sahid</span> &
+                            <span class="bride-mother">Ibu Sulyati</span>
+                        </p>
+                        <div id="brideSocial" class="couple-social"></div>
+                    </div>
+
+                    <!-- Groom Card -->
+                    <div class="couple-card-new">
+                        <div class="couple-card-image-wrapper">
+                            <img src="" alt="Mempelai Pria" class="couple-card-image groom-photo">
+                        </div>
+                        <h3 class="couple-card-name font-script groom-name">Kukuh Widiyanto</h3>
+                        <p class="couple-card-parents">
+                            <span class="groom-child-order">Putra pertama dari</span>
+                            <span class="groom-father">Bapak Suratman</span> &
+                            <span class="groom-mother">Ibu Sri Muryani</span>
+                        </p>
+                        <div id="groomSocial" class="couple-social"></div>
+                    </div>
+                </div>
+
+                <!-- Quote -->
+                <div class="quote-box glass-card" data-aos="fade-up">
+                    <p class="quote-text"></p>
+                    <p class="quote-source"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         COUNTDOWN SECTION (Before Prayers)
+         ======================================== -->
+        <section id="mainCountdown" class="main-countdown-section py-16">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Save The Date</p>
+                    <h2 class="section-title">Menuju Hari Bahagia</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="countdown-aesthetic" data-aos="zoom-in">
+                    <div id="mainCountdownTimer" class="countdown-boxes">
+                        <!-- Will be populated by JS -->
+                    </div>
+                    <p class="countdown-date-display wedding-date"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         DOA & HARAPAN (PRAYERS & WISHES)
+         ======================================== -->
+        <section id="prayers" class="prayers-section py-20">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Blessings</p>
+                    <h2 class="section-title">Doa & Harapan</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div id="prayersContainer">
+                    <!-- Prayers will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         KISAH CINTA (LOVE STORY) - COMMENTED
+         ======================================== -->
+        <!--         
+        <section id="story" class="story-section py-20">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Our Journey</p>
+                    <h2 class="section-title">Kisah Cinta Kami</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div id="storyTimeline"> 
+                    
+        </div>
+        </div>
+        </section> -->
+
+        <!-- ========================================
+         DETAIL ACARA
+         ======================================== -->
+        <section id="events" class="events-section py-20">
+            <!-- Decorative Corner Ornaments - Floral Rose Pattern -->
+            <div class="section-ornament ornament-top-left animated">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M50,20 Q60,30 55,45 Q65,35 75,40 Q65,50 70,60 Q55,55 50,65 Q45,55 30,60 Q35,50 25,40 Q35,35 45,45 Q40,30 50,20"
+                        fill="currentColor" />
+                    <path
+                        d="M50,10 Q55,15 52,22 Q58,18 62,22 Q56,26 58,32 Q52,28 50,35 Q48,28 42,32 Q44,26 38,22 Q42,18 48,22 Q45,15 50,10"
+                        fill="currentColor" opacity="0.6" />
+                    <ellipse cx="20" cy="85" rx="6" ry="10" fill="currentColor" opacity="0.4" />
+                    <ellipse cx="80" cy="85" rx="6" ry="10" fill="currentColor" opacity="0.4" />
+                </svg>
+            </div>
+            <div class="section-ornament ornament-bottom-right animated">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M50,20 Q60,30 55,45 Q65,35 75,40 Q65,50 70,60 Q55,55 50,65 Q45,55 30,60 Q35,50 25,40 Q35,35 45,45 Q40,30 50,20"
+                        fill="currentColor" />
+                    <path
+                        d="M50,10 Q55,15 52,22 Q58,18 62,22 Q56,26 58,32 Q52,28 50,35 Q48,28 42,32 Q44,26 38,22 Q42,18 48,22 Q45,15 50,10"
+                        fill="currentColor" opacity="0.6" />
+                    <ellipse cx="20" cy="85" rx="6" ry="10" fill="currentColor" opacity="0.4" />
+                    <ellipse cx="80" cy="85" rx="6" ry="10" fill="currentColor" opacity="0.4" />
+                </svg>
+            </div>
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Save The Date</p>
+                    <h2 class="section-title">Rangkaian Acara</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div id="eventsContainer">
+                    <!-- Events will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         LOKASI
+         ======================================== -->
+        <section id="location" class="location-section py-20">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Location</p>
+                    <h2 class="section-title">Lokasi Acara</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <!-- Dynamic location cards will be populated by JS -->
+                <div id="locationsContainer" class="locations-grid">
+                    <!-- Maps loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         RSVP & BUKU TAMU
+         ======================================== -->
+        <section id="rsvp" class="rsvp-section py-20">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Konfirmasi Kehadiran</p>
+                    <h2 class="section-title">RSVP</h2>
+                    <div class="section-divider"
+                        style="background: linear-gradient(90deg, #fff, rgba(255,255,255,0.5));"></div>
+                </div>
+
+                <div class="rsvp-form-container" data-aos="fade-up">
+                    <form id="rsvpForm" class="rsvp-form">
+                        <div class="form-group">
+                            <label for="rsvpName" class="form-label">Nama Lengkap</label>
+                            <input type="text" id="rsvpName" class="form-input" placeholder="Masukkan nama Anda"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rsvpPhone" class="form-label">No. WhatsApp (Boleh Kosong)</label>
+                            <input type="tel" id="rsvpPhone" class="form-input" placeholder="08xxxxxxxxxx">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rsvpAttendance" class="form-label">Konfirmasi Kehadiran</label>
+                            <select id="rsvpAttendance" class="form-select" required>
+                                <option value="">Pilih status kehadiran</option>
+                                <option value="hadir">✓ Hadir</option>
+                                <option value="tidak">✗ Tidak Hadir</option>
+                                <option value="ragu">? Masih Ragu</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rsvpGuests" class="form-label">Jumlah Tamu (termasuk Anda)</label>
+                            <select id="rsvpGuests" class="form-select">
+                                <option value="1">1 orang</option>
+                                <option value="2">2 orang</option>
+                                <option value="3">3 orang</option>
+                                <option value="4">4 orang</option>
+                                <option value="5">5 orang</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rsvpMessage" class="form-label">Ucapan & Doa</label>
+                            <textarea id="rsvpMessage" class="form-textarea"
+                                placeholder="Tulis ucapan dan doa untuk kedua mempelai..." required></textarea>
+                        </div>
+
+                        <button type="submit" id="rsvpSubmit" class="rsvp-submit">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Kirim Ucapan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         LIVE MESSAGE WALL
+         ======================================== -->
+        <section id="messages" class="messages-section py-20">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Wishes</p>
+                    <h2 class="section-title">Ucapan & Doa</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div id="messageWall">
+                    <!-- Messages will be loaded by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         GALLERY
+         ======================================== -->
+        <section id="gallery" class="gallery-section py-20">
+            <!-- Decorative Corner Ornaments - Floral Leaf Pattern -->
+            <div class="section-ornament ornament-top-right animated">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20,80 Q30,60 50,50 Q70,40 80,20" fill="none" stroke="currentColor" stroke-width="2" />
+                    <ellipse cx="50" cy="50" rx="15" ry="25" transform="rotate(-45 50 50)" fill="currentColor"
+                        opacity="0.6" />
+                    <ellipse cx="35" cy="65" rx="10" ry="18" transform="rotate(-30 35 65)" fill="currentColor"
+                        opacity="0.4" />
+                    <ellipse cx="65" cy="35" rx="10" ry="18" transform="rotate(-60 65 35)" fill="currentColor"
+                        opacity="0.4" />
+                    <circle cx="80" cy="20" r="5" fill="currentColor" />
+                    <circle cx="20" cy="80" r="4" fill="currentColor" />
+                </svg>
+            </div>
+            <div class="section-ornament ornament-bottom-left animated">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20,80 Q30,60 50,50 Q70,40 80,20" fill="none" stroke="currentColor" stroke-width="2" />
+                    <ellipse cx="50" cy="50" rx="15" ry="25" transform="rotate(-45 50 50)" fill="currentColor"
+                        opacity="0.6" />
+                    <ellipse cx="35" cy="65" rx="10" ry="18" transform="rotate(-30 35 65)" fill="currentColor"
+                        opacity="0.4" />
+                    <ellipse cx="65" cy="35" rx="10" ry="18" transform="rotate(-60 65 35)" fill="currentColor"
+                        opacity="0.4" />
+                    <circle cx="80" cy="20" r="5" fill="currentColor" />
+                    <circle cx="20" cy="80" r="4" fill="currentColor" />
+                </svg>
+            </div>
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Moments</p>
+                    <h2 class="section-title">Galeri Foto</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <!-- Gallery Filters -->
+                <div class="gallery-filters" data-aos="fade-up">
+                    <button class="gallery-filter active" data-category="all">Semua</button>
+                    <button class="gallery-filter" data-category="prewedding">Prewedding</button>
+                    <button class="gallery-filter" data-category="engagement">Engagement</button>
+                    <button class="gallery-filter" data-category="family">Keluarga</button>
+                </div>
+
+                <div id="galleryGrid">
+                    <!-- Gallery items will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         AMPLOP DIGITAL & GIFT
+         ======================================== -->
+        <section id="gift" class="gift-section py-20">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Wedding Gift</p>
+                    <h2 class="section-title">Amplop Digital</h2>
+                    <div class="section-divider"></div>
+                    <p class="max-w-xl mx-auto text-center text-gray-600 dark:text-gray-300 mt-4">
+                        Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda ingin memberikan
+                        tanda kasih, kami menyediakan amplop digital di bawah ini.
+                    </p>
+                </div>
+
+                <div id="giftAccounts">
+                    <!-- Bank accounts will be populated by JS -->
+                </div>
+
+                <div id="qrisContainer">
+                    <!-- QRIS will be populated by JS -->
+                </div>
+
+                <!-- Gift Address Section -->
+                <div id="giftAddressContainer" class="mt-8">
+                    <!-- Gift address will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         PROTOKOL & INFORMASI TEKNIS
+         ======================================== -->
+        <section id="protocol" class="protocol-section py-20">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">Information</p>
+                    <h2 class="section-title">Informasi Acara</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="protocol-grid">
+                    <!-- Rules -->
+                    <div class="glass-card protocol-card" data-aos="fade-up" data-aos-delay="0">
+                        <h3><i class="fas fa-clipboard-list text-primary"></i> Aturan Tamu</h3>
+                        <ul id="protocolRules">
+                            <!-- Rules will be populated by JS -->
+                        </ul>
+                    </div>
+
+                    <!-- Arrival -->
+                    <div class="glass-card protocol-card" data-aos="fade-up" data-aos-delay="100">
+                        <h3><i class="fas fa-clock text-primary"></i> Waktu Kedatangan</h3>
+                        <p class="text-gray-600 dark:text-gray-300 arrival-time"></p>
+
+                        <h3 class="mt-6"><i class="fas fa-car text-primary"></i> Parkir</h3>
+                        <p class="text-gray-600 dark:text-gray-300 parking-info"></p>
+                    </div>
+
+                    <!-- Contact Person -->
+                    <div class="glass-card protocol-card" data-aos="fade-up" data-aos-delay="200">
+                        <h3><i class="fas fa-phone text-primary"></i> Contact Person</h3>
+                        <div id="contactPersons">
+                            <!-- Contact persons will be populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         PENUTUP
+         ======================================== -->
+        <section id="closing" class="closing-section py-20">
+            <div class="container">
+                <div class="closing-content" data-aos="fade-up">
+                    <div class="text-6xl mb-8 text-primary opacity-30">
+                        <i class="fas fa-pray"></i>
+                    </div>
+
+                    <p class="closing-message">
+                        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir
+                        untuk memberikan doa restu kepada kami.
+                    </p>
+
+                    <p class="closing-signature">Dengan penuh cinta,</p>
+                    <h3 class="closing-names">
+                        <span class="groom-nickname">Ahmad</span> & <span class="bride-nickname">Aisyah</span>
+                    </h3>
+
+                    <!-- Vendor Logo (optional) -->
+                    <div class="closing-vendor">
+                        <!-- <p>Organized by Wedding Organizer XYZ</p> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         FOOTER
+         ======================================== -->
+        <footer>
+            <p class="mt-2 opacity-70">Kukuh & Fitriani</p>
+            <p>
+                Created by
+                <a href="https://frugaldev.biz.id">Frugaldev</a>
+            </p>
+        </footer>
+    </main>
+
+    <!-- ========================================
+       FLOATING CONTROLS
+       ======================================== -->
+    <div class="floating-controls">
+        <button id="musicToggle" class="floating-btn" title="Toggle Music">
+            <i class="fas fa-play"></i>
+        </button>
+        <button id="themeToggle" class="floating-btn" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <!-- ========================================
+       LIGHTBOX
+       ======================================== -->
+    <div id="lightbox" class="hidden">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="app.closeLightbox()">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="lightboxImage" src="" alt="">
+            <p id="lightboxCaption"></p>
+        </div>
+    </div>
+
+    <!-- ========================================
+       SCRIPTS
+       ======================================== -->
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Config -->
+    <script src="js/config.js"></script>
+
+    <!-- Wedding API Client -->
+    <script src="js/api.js"></script>
+
+    <!-- Toast Notifications -->
+    <script src="js/toast.js"></script>
+
+    <!-- Main App -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>

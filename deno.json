@@ -1,0 +1,17 @@
+{
+  "name": "wedding-invitation",
+  "version": "1.0.0",
+  "exports": "./main.ts",
+  "tasks": {
+    "dev": "deno run --allow-net --allow-read --allow-env --unstable-kv --watch main.ts",
+    "start": "deno run --allow-net --allow-read --allow-env --unstable-kv main.ts"
+  },
+  "imports": {
+    "@std/http": "jsr:@std/http@^1.0.0",
+    "@std/http/file-server": "jsr:@std/http@^1.0.0/file-server",
+    "@std/crypto": "jsr:@std/crypto@^1.0.0"
+  },
+  "compilerOptions": {
+    "strict": true
+  }
+}
