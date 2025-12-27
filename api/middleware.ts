@@ -75,11 +75,12 @@ export function applySecurityHeaders(response: Response): Response {
   // CSP - Content Security Policy
   headers.set("Content-Security-Policy", [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://maps.googleapis.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com",
-    "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com",
-    "img-src 'self' data: https: blob:",
-    "connect-src 'self'",
+    "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:",
+    "img-src 'self' data: https: blob: *",
+    "connect-src 'self' https://maps.googleapis.com",
+    "frame-src https://www.google.com https://maps.google.com https://*.google.com",
     "frame-ancestors 'none'",
   ].join("; "));
   
