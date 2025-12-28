@@ -24,7 +24,7 @@ const CONFIG = {
     groom: {
         fullName: 'Kukuh Widiyanto, S.Md.Kom.',
         nickname: 'Kukuh',
-        photo: '/assets/images/ava1.jpg',
+        photo: '/assets/images/groom.png',
         fatherName: 'Bapak Suratman',
         motherName: 'Ibu Sri Muryani',
         childOrder: 'Putra pertama dari',
@@ -39,7 +39,7 @@ const CONFIG = {
     bride: {
         fullName: 'Fitriani Desi Pratiwi, S.E.',
         nickname: 'Fitriani',
-        photo: '/assets/images/ava2.jpg',
+        photo: '/assets/images/bride.png',
         fatherName: 'Bapak Sahid',
         motherName: 'Ibu Sulyati',
         childOrder: 'Putri kedua dari',
